@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ventas" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="328bba95-8ed7-430c-8179-75815a82fd04">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql sensor"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="date_report_init" class="java.util.Date">
+		<defaultValueExpression><![CDATA[DATERANGE("2020-08-29")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="date_report_end" class="java.util.Date">
+		<defaultValueExpression><![CDATA[DATERANGE("2020-08-29")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="path_image_logo" class="java.lang.String">
+		<parameterDescription><![CDATA[Ruta absoluta del logo del reporte]]></parameterDescription>
+		<defaultValueExpression><![CDATA["/home/alex/JaspersoftWorkspace/pruena/ventas/logo.png"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select ROW_NUMBER ( ) OVER (ORDER BY h.date_h) as nro,   SUBSTRING_INDEX(  SUBSTRING_INDEX( h.date_h, " ", 1) , "-", -2 ) as fecha,  SUBSTRING_INDEX( h.date_h, " ", 1)  as fecha_format , h.date_h ,  avg(h.humidity) as promedio_humedad,  max(t.temp) as max_temperatura, min(t.temp) as min_temperatura from humidity as h
+inner join temperature as t on h.date_h = t.date_h
+where  
+$X{BETWEEN, h.date_h ,  date_report_init,  date_report_end } 
+GROUP BY  h.date_h]]>
+	</queryString>
+	<field name="nro" class="java.math.BigInteger">
+		<property name="com.jaspersoft.studio.field.label" value="nro"/>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="humidity"/>
+	</field>
+	<field name="fecha_format" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_format"/>
+	</field>
+	<field name="date_h" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="date_h"/>
+	</field>
+	<field name="promedio_humedad" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="promedio_humedad"/>
+	</field>
+	<field name="max_temperatura" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="max_temperatura"/>
+	</field>
+	<field name="min_temperatura" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="min_temperatura"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="103" y="4" width="360" height="86" uuid="1912faaa-ac44-433a-a2e0-72178c73cba5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="24" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Humedad y Temperatura]]></text>
+			</staticText>
+			<image>
+				<reportElement x="463" y="2" width="77" height="88" uuid="0376ff90-50f1-4641-9a74-890b36260243"/>
+				<imageExpression><![CDATA[$P{path_image_logo}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="26" y="2" width="77" height="88" uuid="9ce1c431-7830-42c5-aa71-9862911fcd0a"/>
+				<imageExpression><![CDATA[$P{path_image_logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<frame>
+				<reportElement x="41" y="1" width="490" height="30" uuid="bf3293e0-cb5f-4d4b-8d07-f7cdc79d5272"/>
+				<staticText>
+					<reportElement x="10" y="0" width="40" height="30" uuid="b3a3a345-0504-4cbd-8faf-3b1cdd9998ff"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[#]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="50" y="0" width="100" height="30" uuid="2492fe53-5aa6-4023-883e-ec91d54a224f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="0" width="110" height="30" uuid="d581ca4d-39b9-4867-af4a-ac96e9211462"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Temp Max]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="260" y="0" width="110" height="30" uuid="0fef153b-7440-493a-b16e-7e870c6f420c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Temp Min]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="370" y="0" width="118" height="30" uuid="03b8f76c-1e7b-40d7-9e3c-760e61be9065"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Humedad]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement x="42" y="0" width="488" height="30" uuid="f28b5173-8757-433f-8f94-62dde071d2ba"/>
+				<textField>
+					<reportElement x="9" y="0" width="41" height="30" uuid="d0f75dfa-05b0-4c2e-9cd5-e15b51662d74"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nro}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="50" y="-1" width="100" height="30" uuid="054d801d-a2c4-4a73-858b-09cc50e8f488"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha_format}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="150" y="0" width="110" height="30" uuid="5986fea9-176f-408f-9be5-45b1a8224eba"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{max_temperatura}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="0" width="110" height="30" uuid="b6786053-fff2-4f8f-9a4c-ea37334419c2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{min_temperatura}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="370" y="0" width="118" height="30" uuid="ba12a1b4-24ed-4f2d-a479-c09db24d9ae1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{promedio_humedad}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="46" splitType="Stretch">
+			<frame>
+				<reportElement x="36" y="23" width="500" height="19" uuid="2dd090b1-c2c0-4de3-b1de-d85809f4a9b6"/>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="6" y="0" width="170" height="20" uuid="581ea7ca-eb60-4d2a-9221-1dc9868a79c7"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="-1" width="100" height="20" uuid="e950d454-4de5-43ae-87df-2aad2512fc53"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="425" y="-1" width="75" height="20" uuid="00a511fd-9c7f-427d-afc1-380636e0dcc8"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="293" splitType="Stretch">
+			<frame>
+				<reportElement x="40" y="0" width="492" height="293" uuid="74b87f61-d55e-4609-b544-eff0de81a63c"/>
+				<bar3DChart>
+					<chart evaluationTime="Report">
+						<reportElement x="6" y="20" width="480" height="230" uuid="4add5f42-bae9-422c-8957-5884b2443d11"/>
+						<box>
+							<pen lineWidth="1.0" lineStyle="Solid"/>
+						</box>
+						<chartTitle/>
+						<chartSubtitle>
+							<font size="8"/>
+						</chartSubtitle>
+						<chartLegend>
+							<font size="8"/>
+						</chartLegend>
+					</chart>
+					<categoryDataset>
+						<dataset resetType="Report"/>
+						<categorySeries>
+							<seriesExpression><![CDATA["Temp Max"]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{fecha}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{max_temperatura}]]></valueExpression>
+						</categorySeries>
+						<categorySeries>
+							<seriesExpression><![CDATA["Temp Min"]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{fecha}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{min_temperatura}]]></valueExpression>
+						</categorySeries>
+					</categoryDataset>
+					<bar3DPlot>
+						<plot/>
+						<itemLabel/>
+						<categoryAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</valueAxisFormat>
+					</bar3DPlot>
+				</bar3DChart>
+				<staticText>
+					<reportElement x="11" y="260" width="475" height="30" uuid="82116ee1-80bd-4210-8635-c0b291de78e7"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Tabla y grafica de las temperaturas y humedades de la ultima semana]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

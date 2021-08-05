@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="hello_world" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="040c48a3-961f-4d27-865c-97a12cffcae2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="388"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="598"/>
+	<parameter name="path_image_logo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["/home/alex/JaspersoftWorkspace/pruena/temperaturas/logo.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lunesMIN" class="java.lang.Integer"/>
+	<parameter name="lunesMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lunesHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="martesMIN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<parameter name="martesMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="martesHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="miercolesMIN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<parameter name="miercolesMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="miercolesHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="juevesMIN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<parameter name="juevesMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="juevesHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="viernesMIN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<parameter name="viernesMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="viernesHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sabadoMIN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sabadoHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sabadoMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="domingoMIN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<parameter name="domingoMAX" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[29]]></defaultValueExpression>
+	</parameter>
+	<parameter name="domingoHUM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<queryString language="MongoDbQuery">
+		<![CDATA[{
+	collectionName: 'humidities'
+},]]>
+	</queryString>
+	<field name="__v" class="java.lang.Integer"/>
+	<field name="_id" class="org.bson.types.ObjectId"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="humidity" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="26" y="2" width="77" height="88" uuid="43aef7c6-688a-4ebf-af20-98efa6c26711"/>
+				<imageExpression><![CDATA[$P{path_image_logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="103" y="4" width="360" height="76" uuid="1425b6fb-8113-40aa-89f9-d78cd8ba391e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="24" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Temperatura y Humedad]]></text>
+			</staticText>
+			<image>
+				<reportElement x="463" y="2" width="77" height="88" uuid="e1725f0c-5c83-4ea4-9300-b65e52247044"/>
+				<imageExpression><![CDATA[$P{path_image_logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="504" splitType="Stretch">
+			<frame>
+				<reportElement x="29" y="0" width="514" height="30" uuid="aa54d7bd-8aa1-4c3d-9d0e-804d6e222373"/>
+				<rectangle>
+					<reportElement x="0" y="1" width="514" height="30" backcolor="#8C86FC" uuid="a251c531-93ca-46e0-92a6-3f76c4fbece9"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="11e54212-93f7-4de6-b55f-10dc7b3e0304"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="48e53782-24c0-4d6e-89a4-51d25abb7484"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="4b4086ee-57a4-4e4f-b312-e92e3107b39d"/>
+				</line>
+				<staticText>
+					<reportElement x="135" y="0" width="122" height="30" uuid="0c8f921e-7e6f-4161-a0fe-84a68d053632"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Temp. Minima]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="260" y="1" width="122" height="30" uuid="96cb150c-ff73-426d-b244-75a2e4122a7e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Temp. Maxima]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="388" y="1" width="122" height="30" uuid="876fc35a-0afe-4924-b1e5-6e9d645db44f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Humedad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="1" width="122" height="30" uuid="46121fec-a684-4d0c-90a8-148133457ac3"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dia]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="29" y="31" width="514" height="30" uuid="96434772-18ea-4121-8801-0cd2cd770e71"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="c68d8a77-27f1-4d15-8202-eee38f3a6912"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="066ce012-af98-471a-bd63-9b6ea4f63579"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="60d335c8-10fb-42bf-863f-d707983c1169"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="27818469-09b8-48d8-8223-e96cb4387718"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="0" width="123" height="30" uuid="3cb6a41b-764b-4bce-a7ab-b2df5051e501"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Lunes]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="138" y="1" width="116" height="28" uuid="53d3e528-afbc-4b8d-939d-98e01ad483be"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{lunesMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="263" y="1" width="116" height="28" uuid="d7d5d67b-c8bb-482f-8ce7-f3ded07d5d04"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{lunesMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="392" y="1" width="116" height="28" uuid="5bbcfc06-18fd-449a-ae7e-3b6d47606d11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{lunesHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="29" y="62" width="514" height="30" uuid="8a6f6a4d-9c5b-409d-b5ea-7549ec64baf5"/>
+				<rectangle>
+					<reportElement x="0" y="-1" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="02fa0904-e762-473d-b119-3a50bf078438"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="0e26a331-e2a1-4724-8981-07d61a423c8c"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="9dc30a77-fac5-4002-ad17-35faf1db091e"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="c6b50f9b-7019-40de-85e2-0f42e8eef445"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="-1" width="123" height="30" uuid="7e2d79a7-011d-432e-898c-98d1c90334f9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Martes]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="137" y="0" width="116" height="28" uuid="82657cde-3b40-4f48-a123-c9f9d8abb3c1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{martesMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="262" y="0" width="116" height="28" uuid="a27ca79d-45a0-4096-ab37-1b94436d45a7"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{martesMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="116" height="28" uuid="9b8bac6d-f087-4eb3-9a71-e36666b2e636"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{martesHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="29" y="92" width="514" height="30" uuid="3c60b4d8-c267-4163-9d7b-5b29b82aacea"/>
+				<rectangle>
+					<reportElement x="0" y="-1" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="ed148748-4c82-4c90-b7dd-fc55393ab00b"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="495b34b4-88ef-4dd9-86f2-b8db96263bbc"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="cc8c7365-c82b-47ab-a5e7-526d1eb997ba"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="0bd8f132-9609-43ef-9383-abbac8f77351"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="-1" width="123" height="30" uuid="076c0b78-e672-4771-be94-951abd33da6f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Miercoles]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="137" y="0" width="116" height="28" uuid="cca2e676-0581-46ab-81b7-f126ac8a2c51"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{miercolesMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="262" y="0" width="116" height="28" uuid="7039949a-c0a9-4f9c-bc27-c0136db31c00"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{miercolesMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="116" height="28" uuid="46bf1fc3-00a4-48c9-995c-9ed288f87152"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{miercolesHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="29" y="122" width="514" height="30" uuid="22c3c990-0667-4373-90f2-7a01c56c88da"/>
+				<rectangle>
+					<reportElement x="0" y="-1" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="e28b7ba8-dc1e-4370-a478-a2ee9ea80798"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="04386b57-9f00-4432-9696-c4d0b9fa0e13"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="450973a1-e774-4ba3-842d-ca10558708b5"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="ffcad11c-d535-454e-880a-6e3a261d5d7e"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="-1" width="123" height="30" uuid="16ac0f1b-3c43-4abf-9c06-04d25d3f306d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Jueves]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="137" y="0" width="116" height="28" uuid="99d48c0e-d4d1-4c96-ab62-fe68d6dd4204"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{juevesMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="262" y="0" width="116" height="28" uuid="0f40870e-18b7-4203-8f50-ca62a241e9fd"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{juevesMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="116" height="28" uuid="687810b3-7eba-4fca-8d96-eab461beabc0"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{juevesHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="29" y="151" width="514" height="30" uuid="407a87d5-db15-46f0-a49f-e38e1d6b0dee"/>
+				<rectangle>
+					<reportElement x="0" y="-1" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="db496267-2fde-4678-9f6d-e74b72cc7089"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="0ec2a43b-17e8-4d66-994c-2c7368dda526"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="56e22005-5be7-43c1-b9d9-4b58774f64ca"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="b1ca4fbb-d3c0-4bf1-ab1f-71b17ddcd027"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="-1" width="123" height="30" uuid="841250da-af96-4ce8-84c1-06c1cde7b9b9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Viernes]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="137" y="0" width="116" height="28" uuid="a2f449af-45ee-46db-953c-1fb4a4ce2a60"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{viernesMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="262" y="0" width="116" height="28" uuid="7940839a-2f07-48f1-b258-2c7b5cf016de"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{viernesMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="116" height="28" uuid="5722b0cd-1e71-4ddc-b0f8-f2f61fe4345e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{viernesHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="29" y="181" width="514" height="30" uuid="4ad4f37f-5860-4821-a198-227e5989486b"/>
+				<rectangle>
+					<reportElement x="0" y="-1" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="2744b6da-80b2-4afa-9a2d-7642016610a8"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="24dee309-20a1-4a8c-bce4-51c9a10cdb1e"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="4df26b1f-5760-42bb-a691-ffab2c6e9bd7"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="dd2dd337-bf31-41c4-b573-8841ed83abb6"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="-1" width="123" height="30" uuid="f70a2a48-9520-4cac-9193-77aaa0220435"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Sabado]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="137" y="0" width="116" height="28" uuid="aa20e07c-8d99-4cb4-8115-3e6edcf4d212"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{sabadoMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="262" y="0" width="116" height="28" uuid="7e02f983-d6ea-49e3-80ef-c024d2665c0f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{sabadoMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="116" height="28" uuid="20cac90e-1b8a-48b0-b5d0-4d16c6db8efd"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{sabadoHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="29" y="211" width="514" height="30" uuid="9d7cbd42-cc40-49f4-9903-ea68db26577b"/>
+				<rectangle>
+					<reportElement x="0" y="-1" width="514" height="30" backcolor="rgba(255, 255, 255, 0.9882353)" uuid="5d040a29-82c4-453e-9619-35128a6eb9c9"/>
+				</rectangle>
+				<line>
+					<reportElement x="134" y="0" width="1" height="30" uuid="82686a6e-a55c-4e20-ae1d-5f71541dff01"/>
+				</line>
+				<line>
+					<reportElement x="257" y="1" width="1" height="30" uuid="6e645bba-27af-41b8-8944-fb15afdbd9a1"/>
+				</line>
+				<line>
+					<reportElement x="386" y="0" width="1" height="30" uuid="2381268a-e7bb-4fb4-9f73-237f6e5cbc64"/>
+				</line>
+				<staticText>
+					<reportElement x="7" y="-1" width="123" height="30" uuid="d0bbaf33-b55f-49fb-bc4b-2110b8646bed"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Domingo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="137" y="0" width="116" height="28" uuid="4401f982-fa93-4296-a7af-d3d64ec31ea4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{domingoMIN}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="262" y="0" width="116" height="28" uuid="8b2208cc-fd05-4f62-95f3-2869d84d93dc"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{domingoMAX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="116" height="28" uuid="cbf83acf-39f7-46d5-8dd1-20b01daa79bf"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{domingoHUM}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<bar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="90" y="260" width="410" height="200" uuid="ee2d2b71-1638-4130-8a3e-2c9af81cbdef"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA["Temp Min"]]></seriesExpression>
+						<categoryExpression><![CDATA[7]]></categoryExpression>
+						<valueExpression><![CDATA[$P{lunesMIN}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Temp Max"]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$P{lunesMAX}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Humedad"]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$P{lunesHUM}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" verticalTickLabels="false" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<frame>
+				<reportElement x="36" y="13" width="500" height="19" uuid="7369a202-828b-4076-92c6-054ce0a65776"/>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="6" y="0" width="170" height="20" uuid="3285b8ba-7b35-44cb-839e-3109b49aa5d2"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="-1" width="100" height="20" uuid="441bff54-a3ab-4cd3-b707-00ab60705a09"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="425" y="-1" width="75" height="20" uuid="06358bd8-fa56-49b6-b867-7512c5391579"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="18" splitType="Stretch"/>
+	</summary>
+</jasperReport>

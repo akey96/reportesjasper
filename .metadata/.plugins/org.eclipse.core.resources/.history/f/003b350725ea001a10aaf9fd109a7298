@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ventas_cod" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcf0123b-9bc3-4f54-8316-84cd85b1a4a5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="laravel"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  ROW_NUMBER () OVER (ORDER BY sales.id) ,sales.id as cod_venta, customers.name as name_client , customers.ci, customers.cellphone, customers.address, customers.email,  sales.total_sale, products.name , products.description, product_sale.qty, products.sale_price  FROM sales INNER JOIN customers ON customers.id = sales.customer_id INNER JOIN users ON sales.user_id=users.id INNER JOIN product_sale ON sales.id=product_sale.sale_id INNER JOIN products ON product_sale.product_id=products.id where sales.id=23]]>
+	</queryString>
+	<field name="row_number" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="row_number"/>
+	</field>
+	<field name="cod_venta" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="cod_venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="name_client" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name_client"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="ci" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ci"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="cellphone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cellphone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="total_sale" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="total_sale"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="products"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="products"/>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="qty"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_sale"/>
+	</field>
+	<field name="sale_price" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="sale_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="products"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement x="26" y="0" width="520" height="30" uuid="f4b17898-a6db-4b7b-b4f1-9138c55e4e3b"/>
+				<textField>
+					<reportElement x="40" y="0" width="100" height="30" uuid="808dd349-aad8-4c57-8432-1841c938e3f3"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{name_client}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="140" y="0" width="170" height="30" uuid="a1ad141d-fe89-4cae-ae2e-8b815280878c"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="310" y="0" width="70" height="30" uuid="b2287d8e-7200-4275-b455-97ab54cc4c13"/>
+					<textElement textAlignment="Center" verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="380" y="0" width="80" height="30" uuid="c741ff8a-3806-4d8c-bbf4-8372f0306407"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{sale_price}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="460" y="0" width="60" height="30" uuid="81c552d1-d7bc-4937-94cc-418a0f773809"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{total_sale}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="40" height="30" uuid="08292fbf-e9cd-4271-8b17-a7e21808fd31"/>
+					<textElement textAlignment="Left" verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{row_number}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<frame>
+				<reportElement x="36" y="21" width="500" height="19" uuid="be19991a-1607-4c3d-8ebb-86132209f773"/>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="6" y="0" width="170" height="20" uuid="32de9583-9145-4604-8c99-da55d1f05840"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="-1" width="100" height="20" uuid="7a86baaf-94b5-46f6-844d-6af509b5257a"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="425" y="-1" width="75" height="20" uuid="02ae28a0-b8cd-4c86-bd40-c410f1cda1b4"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

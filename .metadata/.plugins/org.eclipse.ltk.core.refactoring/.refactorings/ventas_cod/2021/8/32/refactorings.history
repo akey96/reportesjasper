@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;agenal&apos;&#x0A;- Original project: &apos;ventas_cod&apos;&#x0A;- Destination element: &apos;agenal&apos;&#x0A;- Original elements:&#x0A;     logo.png&#x0A;     ventas_cod.jasper&#x0A;     ventas_cod.jrxml&#x0A;     ventas_cod.pdf" description="Copy files" element1="logo.png" element2="ventas_cod.jasper" element3="ventas_cod.jrxml" element4="ventas_cod.pdf" files="4" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1628023477835" target="/agenal" units="0" version="1.0"/>
+</session>

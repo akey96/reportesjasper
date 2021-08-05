@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_2" pageWidth="2170" pageHeight="1180" whenNoDataType="NoDataSection" columnWidth="2130" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="862f78a5-8c6b-4578-b4ca-9600db875fc4">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="laravel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="TextField" fontSize="18" isBold="true"/>
+	<style name="TitleTextField" forecolor="#000000" fontSize="18" isBold="false"/>
+	<parameter name="QUERY" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SELECT  ROW_NUMBER () OVER (ORDER BY sales.id) ,sales.id as cod_venta, customers.name as name_client , customers.ci, customers.cellphone, customers.address, customers.email,  sales.total_sale, products.name , products.description, product_sale.qty, products.sale_price  FROM sales INNER JOIN customers ON customers.id = sales.customer_id INNER JOIN users ON sales.user_id=users.id INNER JOIN product_sale ON sales.id=product_sale.sale_id INNER JOIN products ON product_sale.product_id=products.id where sales.id=23"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="plsql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="row_number" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="row_number"/>
+	</field>
+	<field name="cod_venta" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="cod_venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="name_client" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name_client"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="ci" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ci"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="cellphone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cellphone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="total_sale" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="total_sale"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="products"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="products"/>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="qty"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product_sale"/>
+	</field>
+	<field name="sale_price" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="sale_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="products"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="731" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

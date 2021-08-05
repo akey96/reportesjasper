@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;agenal factura exportacion/facturaImportacion.jrxml&apos; to &apos;facturaExportacion.jrxml&apos;" description="Rename resource &apos;facturaImportacion.jrxml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="facturaImportacion.jrxml" name="facturaExportacion.jrxml" stamp="1628160515346" updateReferences="true"/>
+</session>

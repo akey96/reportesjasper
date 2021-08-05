@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="hello_world" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="040c48a3-961f-4d27-865c-97a12cffcae2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql sensor"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="388"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="598"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="path_image_logo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["/home/alex/JaspersoftWorkspace/pruena/temperaturas/logo.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="date_report_init" class="java.util.Date">
+		<defaultValueExpression><![CDATA[DATERANGE("2020-09-21")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="date_report_end" class="java.util.Date">
+		<defaultValueExpression><![CDATA[DATERANGE("2020-09-25")]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  h.date_h as fecha,  avg(t.temp) as promedio_temp, avg(h.humidity) as promedio_humedad, max(h.humidity) as max_humedad, min(h.humidity) as min_humedad, max(t.temp) as max_temperatura, min(t.temp) as min_temperatura from humidity as h
+inner join temperature as t on h.date_h = t.date_h
+where  
+$X{BETWEEN, fecha,  date_report_init,  date_report_end } 
+GROUP BY fecha]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="26" y="2" width="77" height="88" uuid="43aef7c6-688a-4ebf-af20-98efa6c26711"/>
+				<imageExpression><![CDATA[$P{path_image_logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="103" y="4" width="360" height="76" uuid="1425b6fb-8113-40aa-89f9-d78cd8ba391e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="24" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Temperatura y Humedad]]></text>
+			</staticText>
+			<image>
+				<reportElement x="463" y="2" width="77" height="88" uuid="e1725f0c-5c83-4ea4-9300-b65e52247044"/>
+				<imageExpression><![CDATA[$P{path_image_logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<frame>
+				<reportElement x="27" y="0" width="518" height="30" uuid="e9a56860-a2b5-4601-8cc6-c9ef2f94d19e"/>
+				<staticText>
+					<reportElement x="40" y="0" width="80" height="30" uuid="446c273e-f531-44f4-97f5-9402e4939da4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cod Prod]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="120" y="0" width="140" height="30" uuid="ee591d6d-0c4a-4080-9b99-dd79ab58e056">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+						<paragraph leftIndent="10"/>
+					</textElement>
+					<text><![CDATA[Nombre Prod]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="260" y="0" width="69" height="30" uuid="4a19ca29-1c0e-4e08-9cfb-6a2969ac36b3"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cantidad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="329" y="0" width="100" height="30" uuid="234b823f-fe3a-4bd1-9d47-e8813813dd7e"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Precio Compra]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="429" y="0" width="89" height="30" uuid="e6bc6a18-05d1-4f59-8210-0eadfacf9079"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Precio Venta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="40" height="30" uuid="52ac7e21-bacd-4c79-ac04-e96384daa74e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[#]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<frame>
+				<reportElement x="27" y="1" width="518" height="29" uuid="7a17915f-42c6-4745-9148-8754df9b1f7d"/>
+				<textField>
+					<reportElement x="429" y="0" width="89" height="30" uuid="e399294a-4385-40e7-a1d0-f7e69f384116">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Serif" size="12"/>
+						<paragraph leftIndent="10"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="120" y="0" width="140" height="30" uuid="5fb4e030-594c-4c35-b9ad-e2c6d2ba8034">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Serif" size="12"/>
+						<paragraph leftIndent="10"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="40" y="0" width="80" height="30" uuid="f017df48-cc3f-4c7d-b2b2-89ebe68b4ad3"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="260" y="0" width="69" height="30" uuid="0841ee1c-f4e7-492b-bfbf-26061406c085">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Serif" size="12"/>
+						<paragraph leftIndent="10"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="329" y="0" width="100" height="30" uuid="d5050d1a-181d-41ef-a545-45521262296e">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Serif" size="12"/>
+						<paragraph leftIndent="10"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="40" height="29" uuid="768d72ad-6334-4e8c-b77c-6c75877ede7a"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Serif" size="12"/>
+					</textElement>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<frame>
+				<reportElement x="36" y="13" width="500" height="19" uuid="7369a202-828b-4076-92c6-054ce0a65776"/>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="6" y="0" width="170" height="20" uuid="3285b8ba-7b35-44cb-839e-3109b49aa5d2"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="-1" width="100" height="20" uuid="441bff54-a3ab-4cd3-b707-00ab60705a09"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="425" y="-1" width="75" height="20" uuid="06358bd8-fa56-49b6-b867-7512c5391579"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="465" splitType="Stretch"/>
+	</summary>
+</jasperReport>

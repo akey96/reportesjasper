@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151" version="1.8.0_151">
+        <bootpath>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/resources.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/rt.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/sunrsasign.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/jsse.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/jce.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/charsets.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/jfr.jar"/>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/ext"/>
+            <entry path="/usr/java/packages/lib/ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+    <libraryInfo home="/opt/tibco/TIB_js-studiocomm_6.16.0/features/jre.linux.gtk.x86_64.feature_11.0.8/adoptopenjdk_jre" version="11.0.8"/>
+</libraryInfos>

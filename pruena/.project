@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>pruena</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>ventas_cod_date_and_user.jrxml</name>
+			<type>1</type>
+			<location>/home/alex/trabajos_de_cursos/Inventarios-bananas/liquida/code/resources/jasperReports/ventas/ventas_cod_date_and_user.jrxml</location>
+		</link>
+	</linkedResources>
+</projectDescription>

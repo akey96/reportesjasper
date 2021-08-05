@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d30345c7-3f92-4983-ac78-0c2e5c285486">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pruebaAgenal"/>
+	<property name="ireport.jasperserver.url" value="http://192.168.122.209:8080/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/notaDebito_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/notaDebito"/>
+	<queryString language="SQL">
+		<![CDATA[select * from factura]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="empresa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="empresa"/>
+		<property name="com.jaspersoft.studio.field.label" value="empresa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="producto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="unidades" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="unidades"/>
+		<property name="com.jaspersoft.studio.field.label" value="unidades"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="519" height="68" uuid="7b19c268-f79f-489f-8e96-21a8d4fcfb0b"/>
+				<image>
+					<reportElement x="0" y="0" width="150" height="68" uuid="b172ecfd-2f04-41b8-913b-38f859725260"/>
+					<imageExpression><![CDATA["repo:LogoAjayu2.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="271" y="23" width="220" height="40" uuid="ec99edba-69de-465d-abc2-d0e4727c9b36"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AGENCIA DESPACHANTE DE ADUANA
+AGENAL ANTONIO YUTRONIC S.A.]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="120" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="120" uuid="4f10c391-1b50-4990-853a-81d290996897"/>
+				<rectangle>
+					<reportElement x="370" y="1" width="150" height="19" uuid="f2dda1b5-1051-44e8-a21c-68e350110e40"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="370" y="20" width="150" height="19" uuid="c4067537-cb44-4c96-91ec-c1543ee810d4"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="370" y="39" width="150" height="19" uuid="7d100f26-c245-484c-b1b1-187caf292011"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="58" width="520" height="62" uuid="0343c810-f1d0-4400-8c18-52206e53d46f"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="110" y="18" width="180" height="30" uuid="6a41350e-d547-40c3-be9a-8bc80e007a16"/>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOTA DE DEBITO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="375" y="2" width="50" height="16" uuid="8ff941b1-31fa-46fe-938f-bb590b113349"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Nro    : ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="375" y="21" width="50" height="16" uuid="dee1e77a-935d-4fef-9221-410e6b972ce0"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Fecha    :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="375" y="40" width="50" height="16" uuid="b1221ec3-360d-42de-a396-315f8c5c58bf"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Bs  .-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="427" y="2" width="92" height="16" uuid="ea5eeb8d-5f6f-4569-a7b0-4e396de414cd"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[389/21]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="427" y="21" width="92" height="16" uuid="29c294c0-8b7a-4fe7-b4f5-0fe9b57d6ccf"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[09/07/2021]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="427" y="40" width="92" height="16" uuid="f748c989-c0a5-45d8-9b11-833a681d4f22"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[1,050.00]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="64" width="42" height="14" uuid="85918501-088e-40f0-83e2-038e0db524c2"/>
+					<text><![CDATA[Codigo  :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="53" y="64" width="72" height="14" uuid="285cfa3c-f077-4620-b857-a1cccaa9abb0"/>
+					<text><![CDATA[11200049]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="133" y="64" width="42" height="14" uuid="ca7e2295-226f-4566-b5fb-b09208a77468"/>
+					<text><![CDATA[Cliente  :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="178" y="64" width="332" height="14" uuid="6c3a18f2-7c76-4287-b20c-4ff56b25a2c8"/>
+					<text><![CDATA[INDUSTRIAS DE ACEITE S.A.]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="28" y="80" width="42" height="14" uuid="6d4523ac-b967-40b8-83af-00b03c5e5582"/>
+				<text><![CDATA[Pedido  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="98" width="62" height="14" uuid="ba5b3d2c-5e9a-4ca6-868d-d1b4c66bf71b"/>
+				<text><![CDATA[Mercaderia  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="80" width="457" height="14" uuid="1fd9866a-432c-47e0-97d3-ec280d53631a"/>
+				<text><![CDATA[COMPRA DE CERTIFICADOS DE ORIGEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="98" width="437" height="14" uuid="49860050-745b-4b13-9e50-53c716977758"/>
+				<text><![CDATA[FACTURAS : 207 a la 221]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="32" uuid="335aefca-654a-4309-8170-2d40eb57cb50"/>
+				<line>
+					<reportElement x="0" y="0" width="519" height="1" uuid="91df37a5-7cac-41fa-8c90-e14aa0811d13"/>
+				</line>
+				<line>
+					<reportElement x="519" y="1" width="1" height="31" uuid="6a1fdbaf-fa1c-443f-b3aa-5cee90b35248"/>
+				</line>
+				<line>
+					<reportElement x="0" y="0" width="1" height="32" uuid="598defa5-1699-42be-926b-50d62b99f4c8"/>
+				</line>
+				<staticText>
+					<reportElement x="8" y="6" width="263" height="20" uuid="ab4cbb72-bf6e-407a-99f7-473625c5fb04"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[POR CONCEPTO DE  : ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="18" uuid="30d5d068-ad55-4a6a-a9d0-513b7dbe9fd2"/>
+				<line>
+					<reportElement x="0" y="0" width="1" height="18" uuid="46b1c820-e441-44b1-8f07-60c7d5d483dd"/>
+				</line>
+				<line>
+					<reportElement x="519" y="0" width="1" height="18" uuid="d733a4a0-ae06-4211-9ea4-6ea54921b4c2"/>
+				</line>
+				<textField>
+					<reportElement x="9" y="0" width="100" height="18" uuid="b54e937c-c0b9-47f3-8a98-33ed889b0827"/>
+					<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="119" y="0" width="100" height="18" uuid="c4817812-153d-418a-a157-f6d46a07155a"/>
+					<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="229" y="0" width="100" height="18" uuid="531b9002-582b-4265-9df3-59db8f71096f"/>
+					<textFieldExpression><![CDATA[$F{unidades}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="334" y="0" width="76" height="18" uuid="b640ff65-3ef7-4d51-984b-c6e216654f88"/>
+					<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="0" width="58" height="18" uuid="76177f84-488f-46ca-9695-d12fbda77ad5"/>
+					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="186" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="1" width="520" height="185" uuid="c7e77e58-6563-4689-a214-2b0a5012c859"/>
+				<line>
+					<reportElement x="0" y="89" width="519" height="1" uuid="93f18e1d-c486-4658-88fa-a7b81578ba4d"/>
+				</line>
+				<line>
+					<reportElement x="519" y="-1" width="1" height="90" uuid="763bdddf-5c8f-41f2-8853-45410f0eb0ea"/>
+				</line>
+				<line>
+					<reportElement x="0" y="-1" width="1" height="90" uuid="f7603ade-6a36-424a-a151-dbaad54a4419"/>
+				</line>
+				<staticText>
+					<reportElement x="9" y="64" width="31" height="21" uuid="4aa84f75-c9bd-40f4-a916-bfa24bda4448"/>
+					<text><![CDATA[SON  : ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="64" width="466" height="21" uuid="440631cb-5988-420e-ab53-37cf3a33afa1"/>
+					<text><![CDATA[UN MIL CINCUENTA   00/100   BOLIVIANOS]]></text>
+				</staticText>
+				<line>
+					<reportElement x="177" y="149" width="166" height="1" uuid="8f9442a5-8959-4255-b3ec-2b531ff506e5"/>
+				</line>
+				<staticText>
+					<reportElement x="177" y="154" width="166" height="20" uuid="5627f408-b860-4bb2-bd73-51d9ae6291dd"/>
+					<text><![CDATA[AGENAL ANTONIO YUTRONIC S.A.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="91" width="89" height="20" uuid="ef515e74-7530-4133-b02a-eaeaf61e4fc3"/>
+					<text><![CDATA[Cochabamba]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>
