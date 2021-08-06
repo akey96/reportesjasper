@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92901d70-03a5-4e87-a7d8-eb07220d70ad">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pruebaAgenal"/>
+	<property name="ireport.jasperserver.url" value="http://192.168.122.209:8080/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/planillaImportacion_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/planillaImportacion"/>
+	<queryString language="SQL">
+		<![CDATA[select * from factura]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="empresa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="empresa"/>
+		<property name="com.jaspersoft.studio.field.label" value="empresa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="producto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="unidades" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="unidades"/>
+		<property name="com.jaspersoft.studio.field.label" value="unidades"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="519" height="77" uuid="8f3a9e1a-d3ea-4062-964e-f215b2d910e6"/>
+				<image>
+					<reportElement x="0" y="0" width="180" height="60" uuid="7e0afbbf-9019-4a24-b991-22cae9b8c693"/>
+					<imageExpression><![CDATA["LogoAjayu2.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="200" y="23" width="317" height="30" uuid="7383d161-bb38-4922-9e59-1d4d74aad627"/>
+					<textElement textAlignment="Center">
+						<font size="15" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[PLANILLA DE DESPACHO - IMPORTACION]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="200" y="47" width="317" height="30" uuid="d9ef983f-bde1-40e8-b012-d2fa3accba52"/>
+					<textElement textAlignment="Center">
+						<font size="15" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[0731/2021]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="146" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="138" uuid="7178a101-4323-433e-a3dd-b27e4363d79c"/>
+				<staticText>
+					<reportElement x="8" y="8" width="92" height="14" uuid="85c76965-176a-460e-8076-f50e464b2336"/>
+					<text><![CDATA[LUGAR Y FECHA  :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="101" y="8" width="416" height="14" uuid="6356c621-e115-422b-8960-bbf088e0b19d"/>
+					<text><![CDATA[COCHABAMBA, 09 DE JULIO DE 2021]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="40" width="519" height="40" uuid="50a619d5-d6c0-4d89-93a5-bd6b381e2a75"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="8" y="44" width="72" height="14" uuid="54f42e27-0f53-4657-aac9-747922a6e683"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[PEDIDO :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="90" y="44" width="170" height="14" uuid="e34dfbfe-0943-405f-b2de-1325dcbcb2d2"/>
+					<text><![CDATA[S-R]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="263" y="44" width="72" height="14" uuid="128ea5ab-6cb5-4793-934c-ceb43e339ce6"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[PRODUCTO :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="44" width="172" height="14" uuid="1636944c-17a7-42ef-bf3e-d3e2839b182f"/>
+					<text><![CDATA[TALCO STD EXP. (SILICATO DE MAGNESIO)]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="87" width="519" height="51" uuid="4e6a747b-1dbf-4b15-9c9c-571472823354"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="1" y="88" width="155" height="28" uuid="4e21b746-244e-4642-b7dd-6f7525129213"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[DECLARACION DE IMPORTACION]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="162" y="88" width="77" height="28" uuid="f55cc896-0ab8-43be-a605-aef5926f3350"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[EXPEDIENTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="245" y="88" width="87" height="28" uuid="9ec19bfc-d757-451d-8f16-a2cfac1d4fdd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL
+FOB $us]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="337" y="88" width="87" height="28" uuid="ab315148-8c10-43dc-9fe1-861f3bdc21a4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL
+CIF FRONTERA $us]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="88" width="89" height="28" uuid="f4b14977-5a84-42f6-b9d8-7d931eb889a2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL
+CIF FRONTERA Bs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="120" width="89" height="17" uuid="c9b1c9ea-8f3c-4546-8120-889bd682b15c"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[57,746.00]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="337" y="120" width="87" height="17" uuid="0298df76-e82e-436d-8d02-65679f9e0960"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[8,296.83]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="245" y="120" width="87" height="17" uuid="2ff5c6b4-54af-4b4c-bd68-c0614157ce56">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[6,179.94]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="162" y="120" width="77" height="17" uuid="3ba287e9-16d6-4681-94a4-cfc439d53a9d"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[T949-21]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="120" width="155" height="17" uuid="db64d510-a09f-4208-88e3-a1d730caf451"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[DI-2021-241-2137410]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="116" width="519" height="1" uuid="e7cf00bd-1275-486b-87eb-4cab848f8ec8"/>
+				</line>
+				<line>
+					<reportElement x="158" y="116" width="1" height="22" uuid="01b820b1-76f5-4c48-a5fe-2a85e3d56e5f"/>
+				</line>
+				<line>
+					<reportElement x="158" y="87" width="1" height="29" uuid="8e0c667e-ee30-4a1c-95cd-bf2635c12f34"/>
+				</line>
+				<line>
+					<reportElement x="242" y="87" width="1" height="29" uuid="3999c5c7-5154-4613-bf2f-c6e396b651c1"/>
+				</line>
+				<line>
+					<reportElement x="242" y="116" width="1" height="22" uuid="2a45777a-6a82-485f-bf0b-e4739c7dc7f2"/>
+				</line>
+				<line>
+					<reportElement x="334" y="87" width="1" height="29" uuid="36396dc1-b867-4393-a4ec-18121ceec4da"/>
+				</line>
+				<line>
+					<reportElement x="334" y="116" width="1" height="22" uuid="faa8cfcc-ee44-45a3-a841-5ac5a2fc19e5"/>
+				</line>
+				<line>
+					<reportElement x="427" y="87" width="1" height="29" uuid="ec47d2cf-ca90-4cfb-8fe4-ef72edae2c94"/>
+				</line>
+				<line>
+					<reportElement x="427" y="116" width="1" height="22" uuid="2abeeb51-92de-4440-beb3-d857756075bc"/>
+				</line>
+			</frame>
+			<staticText>
+				<reportElement x="28" y="24" width="64" height="14" uuid="b649b2f0-9b69-43f3-8ae7-524195fb64a0"/>
+				<text><![CDATA[SEÑOR(ES)  : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="24" width="148" height="14" uuid="3b5d1a08-2f58-45f6-afb9-059d3412de5a"/>
+				<text><![CDATA[INDUSTRIAS DE ACEITE S.A.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="62" width="72" height="14" uuid="f0b7ecf6-0d8f-4123-97a0-3eb414c1f3c2"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVEEDOR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="62" width="170" height="14" uuid="fe85c874-0d80-471c-9bd0-57e3ba860e0d"/>
+				<text><![CDATA[IMSUMEX S.A.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="62" width="72" height="14" uuid="3fa9449d-0c28-4509-a7fa-548282426e75"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURAS :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="62" width="172" height="14" uuid="b1cb0bb9-645f-4c64-b329-f73bd23839e4"/>
+				<text><![CDATA[F001-0017308]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="32" uuid="34ed1f0e-8c14-44d6-b856-d1db21e587a7"/>
+				<line>
+					<reportElement x="519" y="1" width="1" height="31" uuid="c5e050c6-d460-4b8d-9193-fbc638d336f9"/>
+				</line>
+				<rectangle>
+					<reportElement x="0" y="0" width="519" height="31" uuid="cc1f504f-242e-490c-8421-66218e08db9b"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="9" y="5" width="390" height="20" uuid="c34c364b-dd8a-43c4-b073-52578946b99b"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CONCEPTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="5" width="88" height="20" uuid="5c4b1f7a-db25-4416-bd86-5a362c1029d9"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SUBTOTAL Bs.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="427" y="1" width="1" height="30" uuid="fe936ef0-36ed-43bc-a887-49144e2a1d2e"/>
+				</line>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="18" uuid="8f0a8ded-4cba-43d6-b3bb-f3799b68d119"/>
+				<line>
+					<reportElement x="0" y="0" width="1" height="18" uuid="1db8502b-67de-41ae-a742-8ac782bc610b"/>
+				</line>
+				<line>
+					<reportElement x="519" y="0" width="1" height="18" uuid="7b5dd07c-3658-4e41-afdf-094a11643461"/>
+				</line>
+				<textField>
+					<reportElement x="9" y="0" width="100" height="18" uuid="83475a18-f8d7-4cc0-bbc9-8c9a672456c2"/>
+					<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="119" y="0" width="100" height="18" uuid="5ded125a-36b2-44a1-a52b-f2fe04dc4930"/>
+					<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="229" y="0" width="100" height="18" uuid="2ddcd11f-f553-4a9a-b70e-f5ecd5aa0ff9"/>
+					<textFieldExpression><![CDATA[$F{unidades}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="334" y="0" width="56" height="18" uuid="fa04728f-273d-4eb2-9c09-228f6267a4a8"/>
+					<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="0" width="86" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="427" y="0" width="1" height="18" uuid="af60fd5f-e02c-443f-b415-5f37fe4e989c"/>
+				</line>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="19" width="519" height="15" uuid="fd7349f3-a914-441f-aed3-ff5c50854576">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[La seguridad de la cadena logística internacional incentiva y genera competitividad empresarial.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="32" width="519" height="15" uuid="6913b3eb-1563-41f4-a2f8-04399fab4649">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Involúcrate, las buenas practicas promueven resultados positivos.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="360" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="0" width="520" height="360" uuid="58224b12-5f91-4714-9343-dc4ddea5773c"/>
+				<line>
+					<reportElement x="0" y="89" width="519" height="1" uuid="1798857e-3f78-4958-b3a8-b514135f6caa"/>
+				</line>
+				<line>
+					<reportElement x="519" y="0" width="1" height="90" uuid="c5bfe8c7-dbce-4d6d-94a2-e54c7385cfac"/>
+				</line>
+				<line>
+					<reportElement x="0" y="0" width="1" height="90" uuid="592acc0b-e970-4515-94aa-72af46b80315"/>
+				</line>
+				<staticText>
+					<reportElement x="1" y="115" width="516" height="21" uuid="36d78b8e-02bd-4032-82ac-9002b6f9cd69"/>
+					<text><![CDATA[UN MIL CINCUENTA   00/100   BOLIVIANOS]]></text>
+				</staticText>
+				<line>
+					<reportElement x="427" y="0" width="1" height="89" uuid="4c3c6fd4-300e-430c-987d-3943f9841596"/>
+				</line>
+				<rectangle>
+					<reportElement x="260" y="90" width="259" height="20" uuid="feb41ee6-130d-497d-afe5-44af8fed65e5"/>
+				</rectangle>
+				<line>
+					<reportElement x="427" y="90" width="1" height="20" uuid="066ef560-b0b0-4110-8563-8d717d7ed9ba"/>
+				</line>
+				<staticText>
+					<reportElement x="260" y="92" width="148" height="17" uuid="63fa3188-c0d5-489a-8038-bf305ed39872"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL Bs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="92" width="86" height="17" uuid="efad69da-6042-4801-a1fb-7efd0c657a32"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[5,434.00]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="92" y="147" width="337" height="92" uuid="d3f5d105-02f0-4f00-b0ce-5fdfa8813aec"/>
+				</rectangle>
+				<line>
+					<reportElement x="92" y="164" width="337" height="1" uuid="ce0567c4-3f81-4e13-ab96-0f0c630387a1"/>
+				</line>
+				<line>
+					<reportElement x="338" y="147" width="1" height="92" uuid="2a92fe55-ec2e-4542-899d-aafd693ebefe"/>
+				</line>
+				<staticText>
+					<reportElement x="99" y="148" width="236" height="16" uuid="8d330644-7f29-44c7-bf2b-170fe96d94ae">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[RESUMEN DE CUENTA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="339" y="166" width="88" height="14" uuid="b440a9f8-3999-44b9-9849-c84b22d5aa89"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[2,545.87]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="339" y="148" width="89" height="16" uuid="f247cee0-2c7c-4fd3-831d-884659295efb">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[SUBTOTAL Bs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="339" y="180" width="88" height="14" uuid="3fc12a5e-8b1a-402f-b33d-f58a637fd834"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[9,071.13]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="339" y="194" width="88" height="14" uuid="c0a6c11f-0ce7-4974-8ed2-07ac48e2fe88"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[11,617.00]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="339" y="208" width="88" height="14" uuid="a539b28a-86f6-4ec9-8328-ddc2e2aab215"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[0.00]]></text>
+				</staticText>
+				<line>
+					<reportElement x="92" y="222" width="337" height="1" uuid="afc70991-2eaa-42f4-863e-112b2ca4237b"/>
+				</line>
+				<staticText>
+					<reportElement x="339" y="223" width="88" height="16" uuid="bacd18be-98c9-48ae-bea0-1b8f0dc97f14">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[11,617.00]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="166" width="111" height="14" uuid="9ad993f6-6ba1-4179-9951-13022374c6ac"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL FACTURA No      ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="180" width="111" height="14" uuid="30ad1530-5689-44a5-acac-02b525d091d7"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL PLANILLA No]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="194" width="201" height="14" uuid="8610042b-57d4-40ee-aa89-3c5c3fa0e016"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL Bs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="208" width="235" height="14" uuid="34e737a6-56eb-4981-9bd3-9a8b99a7fd6d"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[PAGO A CUENTA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="223" width="201" height="16" uuid="558168b8-4596-4041-9365-5f0a7b87a95e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[SALDO TOTAL A PAGAR Bs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="212" y="166" width="111" height="14" uuid="8ee42593-f5c7-425c-9c98-e966581d8229"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[471]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="212" y="180" width="111" height="14" uuid="d2523db7-9553-4a8d-9066-b511fec7cc82"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font isBold="false"/>
+						<paragraph lineSpacingSize="1.0"/>
+					</textElement>
+					<text><![CDATA[TOTAL PLANILLA No]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>
