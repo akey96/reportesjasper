@@ -23,15 +23,15 @@
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="com.jaspersoft.studio.model.image.command.dialog.ImageCreationDialog">
-		<item key="dialogX" value="0"/>
-		<item key="dialogY" value="20"/>
-		<item key="dialogWidth" value="612"/>
-		<item key="dialogHeight" value="626"/>
-		<item key="DIALOG_X_ORIGIN" value="0"/>
-		<item key="DIALOG_Y_ORIGIN" value="0"/>
-		<item key="DIALOG_WIDTH" value="612"/>
-		<item key="DIALOG_HEIGHT" value="626"/>
-		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
+		<item key="dialogX" value="647"/>
+		<item key="dialogY" value="166"/>
+		<item key="dialogWidth" value="627"/>
+		<item key="dialogHeight" value="589"/>
+		<item key="DIALOG_X_ORIGIN" value="647"/>
+		<item key="DIALOG_Y_ORIGIN" value="130"/>
+		<item key="DIALOG_WIDTH" value="627"/>
+		<item key="DIALOG_HEIGHT" value="589"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="com.jaspersoft.studio.property.color.chooser.ColorDialog">
 		<item key="dialogX" value="383"/>
@@ -45,15 +45,15 @@
 		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
 	</section>
 	<section name="com.jaspersoft.studio.jface.dialogs.ImageSelectionDialog">
-		<item key="dialogX" value="0"/>
-		<item key="dialogY" value="20"/>
-		<item key="dialogWidth" value="612"/>
-		<item key="dialogHeight" value="626"/>
-		<item key="DIALOG_X_ORIGIN" value="0"/>
-		<item key="DIALOG_Y_ORIGIN" value="0"/>
-		<item key="DIALOG_WIDTH" value="612"/>
-		<item key="DIALOG_HEIGHT" value="626"/>
-		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
+		<item key="dialogX" value="647"/>
+		<item key="dialogY" value="166"/>
+		<item key="dialogWidth" value="627"/>
+		<item key="dialogHeight" value="589"/>
+		<item key="DIALOG_X_ORIGIN" value="647"/>
+		<item key="DIALOG_Y_ORIGIN" value="130"/>
+		<item key="DIALOG_WIDTH" value="627"/>
+		<item key="DIALOG_HEIGHT" value="589"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="com.jaspersoft.studio.server.publish.wizard.SaveConfirmationDialog">
 		<item key="dialogX" value="754"/>
@@ -72,5 +72,9 @@
 		<item key="DIALOG_WIDTH" value="832"/>
 		<item key="DIALOG_HEIGHT" value="756"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		<item key="dialogX" value="544"/>
+		<item key="dialogY" value="54"/>
+		<item key="dialogWidth" value="832"/>
+		<item key="dialogHeight" value="756"/>
 	</section>
 </section>

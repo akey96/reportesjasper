@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="UserLibraryLoadSaveDialog.size" value="560,544"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="/home/alex/Escritorio/java_path"/>
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="JavaBuildConfigurationBlock">
@@ -19,17 +21,17 @@
 		<item key="expanded8" value="false"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item key="pageIndex" value="3"/>
+		<item key="pageIndex" value="2"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">
 		<item key="ShowStatusLine" value="true"/>
 		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History/&gt;"/>
 		<section name="DialogBoundsSettings">
-			<item key="DIALOG_HEIGHT" value="500"/>
-			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_HEIGHT" value="522"/>
+			<item key="DIALOG_WIDTH" value="401"/>
 			<item key="DIALOG_X_ORIGIN" value="766"/>
 			<item key="DIALOG_Y_ORIGIN" value="0"/>
-			<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
+			<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 		</section>
 	</section>
 </section>

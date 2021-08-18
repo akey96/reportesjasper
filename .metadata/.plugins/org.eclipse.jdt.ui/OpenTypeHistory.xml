@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=agenal factura exportacion/\/opt\/tibco\/TIB_js-studiocomm_6.16.0\/features\/jre.linux.gtk.x86_64.feature_11.0.8\/adoptopenjdk_jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&lt;java.lang(Object.class[Object" modifiers="33" timestamp="1604938752000"/>
+    <typeInfo handle="=agenal factura exportacion/\/opt\/tibco\/TIB_js-studiocomm_6.16.0\/features\/jre.linux.gtk.x86_64.feature_11.0.8\/adoptopenjdk_jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&lt;java.io(InputStream.class[InputStream" modifiers="1057" timestamp="1604938752000"/>
+    <typeInfo handle="=agenal factura exportacion/\/opt\/tibco\/TIB_js-studiocomm_6.16.0\/features\/jre.linux.gtk.x86_64.feature_11.0.8\/adoptopenjdk_jre\/lib\/jrt-fs.jar`java.desktop=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&lt;java.awt(Image.class[Image" modifiers="1057" timestamp="1604938752000"/>
+</typeInfoHistroy>

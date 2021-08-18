@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=/opt/tibco/TIB_js-studiocomm_6.16.0/features/jre.linux.gtk.x86_64.feature_11.0.8/adoptopenjdk_jre/lib/jrt-fs.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.core-2.3.0=/home/alex/Escritorio/java_path/core-2.3.0.jar
+org.eclipse.jdt.core.classpathVariable.zxing-j2se-1.7=/home/alex/Escritorio/java_path/zxing-j2se-1.7.jar
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
 org.eclipse.jdt.core.compiler.compliance=1.8
