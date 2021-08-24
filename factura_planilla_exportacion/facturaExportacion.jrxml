@@ -200,7 +200,7 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="102" y="64" width="406" height="15" uuid="8e30b674-d14f-4a76-b808-6f1d526f9c92">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+(new SimpleDateFormat("dd/MM/yyyy").format($F{issued_date}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+FechaPersonalizada.fechaCadena($F{issued_date})]]></textFieldExpression>
 				</textField>
 			</frame>
 			<staticText>
@@ -351,12 +351,14 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="415" y="92" width="100" height="17" uuid="71da04c2-b0a0-4a8e-96c8-88fbda60803c">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textElement textAlignment="Center"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="7" y="115" width="498" height="18" uuid="c143322d-cfe2-462f-85e2-e33d257df2cb"/>
-					<textFieldExpression><![CDATA[$F{total_amount_str}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["SON : "+$F{total_amount_str}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="132" y="165" width="100" height="15" uuid="6b371ee5-8d0c-40d1-b1b2-2f21985011f1">

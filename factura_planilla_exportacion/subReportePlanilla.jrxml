@@ -14,72 +14,78 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
 	<queryString>
-		<![CDATA[select iss.statement_number, iss.order,iss.product,iss.supplier,iss.order_invoice,iss.issued_in_department_short,iss.branch_identifier,iss.issued_in_year,iss.assigned_number,iss.expedient_number,to_char(fob_usd, '999,999,999.99') as fob_usd, to_char(cif_usd, '999,999,999.99') as cif_usd, to_char(cif, '999,999,999.99') cif from importation_spreadsheets as iss where id = $P{id_planilla}]]>
+		<![CDATA[select ess.statement_number, ess.unit_weight , ess.receipt_invoice , ess.product,ess.product_destination,ess.receipt, to_char(ess.weight, '999,999,999.99') as weight,ess.issued_in_department_short,ess.branch_identifier,ess.issued_in_year,ess.assigned_number,ess.expedient_number,to_char(ess.total_fob_usd, '999,999,999.99') as total_fob_usd, to_char(ess.total_invoice_usd, '999,999,999.99') as total_invoice_usd, to_char(ess.total_invoice, '999,999,999.99') as total_invoice from exportation_spreadsheets as ess where id = $P{id_planilla}]]>
 	</queryString>
 	<field name="statement_number" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="statement_number"/>
 		<property name="com.jaspersoft.studio.field.label" value="statement_number"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
-	<field name="order" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="order"/>
-		<property name="com.jaspersoft.studio.field.label" value="order"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+	<field name="unit_weight" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="unit_weight"/>
+		<property name="com.jaspersoft.studio.field.label" value="unit_weight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
+	</field>
+	<field name="receipt_invoice" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="receipt_invoice"/>
+		<property name="com.jaspersoft.studio.field.label" value="receipt_invoice"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
 	<field name="product" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="product"/>
 		<property name="com.jaspersoft.studio.field.label" value="product"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
-	<field name="supplier" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="supplier"/>
-		<property name="com.jaspersoft.studio.field.label" value="supplier"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+	<field name="product_destination" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="product_destination"/>
+		<property name="com.jaspersoft.studio.field.label" value="product_destination"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
-	<field name="order_invoice" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="order_invoice"/>
-		<property name="com.jaspersoft.studio.field.label" value="order_invoice"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+	<field name="receipt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="receipt"/>
+		<property name="com.jaspersoft.studio.field.label" value="receipt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
+	</field>
+	<field name="weight" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="weight"/>
+		<property name="com.jaspersoft.studio.field.label" value="weight"/>
 	</field>
 	<field name="issued_in_department_short" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="issued_in_department_short"/>
 		<property name="com.jaspersoft.studio.field.label" value="issued_in_department_short"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
 	<field name="branch_identifier" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="branch_identifier"/>
 		<property name="com.jaspersoft.studio.field.label" value="branch_identifier"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
 	<field name="issued_in_year" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="issued_in_year"/>
 		<property name="com.jaspersoft.studio.field.label" value="issued_in_year"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
 	<field name="assigned_number" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="assigned_number"/>
 		<property name="com.jaspersoft.studio.field.label" value="assigned_number"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
 	<field name="expedient_number" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="expedient_number"/>
 		<property name="com.jaspersoft.studio.field.label" value="expedient_number"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
-	<field name="fob_usd" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="fob_usd"/>
-		<property name="com.jaspersoft.studio.field.label" value="fob_usd"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+	<field name="total_fob_usd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="total_fob_usd"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_fob_usd"/>
 	</field>
-	<field name="cif_usd" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="cif_usd"/>
-		<property name="com.jaspersoft.studio.field.label" value="cif_usd"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+	<field name="total_invoice_usd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="total_invoice_usd"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_invoice_usd"/>
 	</field>
-	<field name="cif" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="cif"/>
-		<property name="com.jaspersoft.studio.field.label" value="cif"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="importation_spreadsheets"/>
+	<field name="total_invoice" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="total_invoice"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_invoice"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -205,19 +211,19 @@
 			</staticText>
 			<textField>
 				<reportElement x="86" y="2" width="200" height="15" uuid="f1406a32-13a3-4be8-8ed9-1a84e75c2382"/>
-				<textFieldExpression><![CDATA[$F{order}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="86" y="18" width="200" height="15" uuid="70ab24d2-2c0c-44e8-a507-0063fe4a9f32"/>
 				<textFieldExpression><![CDATA[$F{product}]]></textFieldExpression>
 			</textField>
 			<textField>
+				<reportElement x="86" y="18" width="200" height="15" uuid="70ab24d2-2c0c-44e8-a507-0063fe4a9f32"/>
+				<textFieldExpression><![CDATA[$F{receipt}]]></textFieldExpression>
+			</textField>
+			<textField>
 				<reportElement x="354" y="2" width="196" height="15" uuid="85b07e47-cf77-4878-b70e-f173464f7e9e"/>
-				<textFieldExpression><![CDATA[$F{supplier}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{product_destination}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="354" y="17" width="196" height="15" uuid="9b122485-e6e9-45f3-8006-70e5265ad768"/>
-				<textFieldExpression><![CDATA[$F{order_invoice}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{weight}.trim()+" "+$F{unit_weight}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="85" y="50" width="225" height="15" uuid="f2f48966-1b0d-47df-8d64-98ace76abfd8"/>
@@ -233,15 +239,15 @@
 			</textField>
 			<textField>
 				<reportElement x="440" y="50" width="110" height="15" uuid="b4e31da5-4874-4e9a-a286-fccc65aad520"/>
-				<textFieldExpression><![CDATA[$F{fob_usd}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{total_fob_usd}.trim()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="440" y="64" width="110" height="15" uuid="fdd8e595-5a71-4f22-a9bb-85b34e9fd239"/>
-				<textFieldExpression><![CDATA[$F{cif_usd}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{total_invoice_usd}.trim()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="440" y="76" width="110" height="15" uuid="9071c39c-ce55-48c8-9687-a609aea44c78"/>
-				<textFieldExpression><![CDATA[$F{cif}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{total_invoice}.trim()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="19" y="32" width="64" height="15" uuid="800eb035-b632-4a84-9a5a-bdb4f12e96cf">
@@ -254,7 +260,7 @@
 			</staticText>
 			<textField>
 				<reportElement x="86" y="33" width="200" height="15" uuid="b3f6b7f9-14f0-47de-a76c-21b82475d89d"/>
-				<textFieldExpression><![CDATA[$F{product}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{receipt_invoice}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

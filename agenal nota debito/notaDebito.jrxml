@@ -447,10 +447,15 @@ WHERE
 					<text><![CDATA[SON  : ]]></text>
 				</staticText>
 				<line>
-					<reportElement x="177" y="149" width="166" height="1" uuid="8f9442a5-8959-4255-b3ec-2b531ff506e5"/>
+					<reportElement x="160" y="150" width="200" height="1" uuid="8f9442a5-8959-4255-b3ec-2b531ff506e5">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 				</line>
 				<staticText>
-					<reportElement x="177" y="154" width="166" height="20" uuid="5627f408-b860-4bb2-bd73-51d9ae6291dd"/>
+					<reportElement x="160" y="154" width="200" height="20" uuid="5627f408-b860-4bb2-bd73-51d9ae6291dd">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
 					<text><![CDATA[AGENAL ANTONIO YUTRONIC S.A.]]></text>
 				</staticText>
 				<staticText>

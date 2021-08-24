@@ -200,7 +200,7 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="102" y="64" width="406" height="15" uuid="8e30b674-d14f-4a76-b808-6f1d526f9c92">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+FechaPersonalizada.fechaCadena($F{issued_date}) ]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+FechaPersonalizada.fechaCadena($F{issued_date})]]></textFieldExpression>
 				</textField>
 			</frame>
 			<staticText>

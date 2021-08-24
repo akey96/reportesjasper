@@ -233,15 +233,15 @@
 			</textField>
 			<textField>
 				<reportElement x="440" y="42" width="110" height="15" uuid="b4e31da5-4874-4e9a-a286-fccc65aad520"/>
-				<textFieldExpression><![CDATA[$F{fob_usd}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fob_usd}.trim()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="440" y="56" width="110" height="15" uuid="fdd8e595-5a71-4f22-a9bb-85b34e9fd239"/>
-				<textFieldExpression><![CDATA[$F{cif_usd}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cif_usd}.trim()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="440" y="68" width="110" height="15" uuid="9071c39c-ce55-48c8-9687-a609aea44c78"/>
-				<textFieldExpression><![CDATA[$F{cif}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cif}.trim()]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>
