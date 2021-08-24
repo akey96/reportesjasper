@@ -3,6 +3,15 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92901d70-03a5-4e87-a7d8-eb07220d70ad">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="id_factura" class="java.lang.Long"/>
 	<parameter name="label_original" class="java.lang.String"/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
@@ -191,7 +200,7 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="102" y="64" width="406" height="15" uuid="8e30b674-d14f-4a76-b808-6f1d526f9c92">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+(new SimpleDateFormat("dd/MM/yyyy").format($F{issued_date}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+FechaPersonalizada.fechaCadena($F{issued_date}) ]]></textFieldExpression>
 				</textField>
 			</frame>
 			<staticText>
@@ -307,7 +316,7 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="408" y="90" width="1" height="20" uuid="066ef560-b0b0-4110-8563-8d717d7ed9ba"/>
 				</line>
 				<image>
-					<reportElement x="452" y="136" width="68" height="68" uuid="39fda23a-c893-4e03-9eab-0c82e4761eb1">
+					<reportElement x="432" y="119" width="88" height="87" uuid="39fda23a-c893-4e03-9eab-0c82e4761eb1">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
@@ -342,12 +351,14 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="415" y="92" width="100" height="17" uuid="71da04c2-b0a0-4a8e-96c8-88fbda60803c">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textElement textAlignment="Center"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="7" y="115" width="498" height="18" uuid="c143322d-cfe2-462f-85e2-e33d257df2cb"/>
-					<textFieldExpression><![CDATA[$F{total_amount_str}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["SON : "+$F{total_amount_str}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="132" y="165" width="100" height="15" uuid="6b371ee5-8d0c-40d1-b1b2-2f21985011f1">

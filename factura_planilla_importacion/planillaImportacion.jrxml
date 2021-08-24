@@ -276,7 +276,7 @@ CIF FRONTERA Bs.]]></text>
 					<reportElement x="103" y="8" width="410" height="14" uuid="e4b9fb45-e7eb-4454-a99e-09f8963478ed">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+(new SimpleDateFormat("dd/MM/yyyy").format($F{issued_date}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+FechaPersonalizada.fechaCadena($F{issued_date}) ]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="74" y="24" width="438" height="14" uuid="8ad15dd6-3795-43a2-bba1-1863f34ba6b8">
@@ -395,8 +395,19 @@ CIF FRONTERA Bs.]]></text>
 	</pageHeader>
 	<columnHeader>
 		<band height="5" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<line>
 				<reportElement x="20" y="0" width="1" height="5" uuid="7ee9472e-f9b3-46d2-88b6-c2dbcb832ce5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="447" y="0" width="1" height="5" uuid="94a54e58-30eb-4988-8604-e4448d26fd8a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="539" y="0" width="1" height="5" uuid="8f6c0ab5-c4b3-41b3-a31b-8738cc920957">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
@@ -416,9 +427,11 @@ CIF FRONTERA Bs.]]></text>
 					<reportElement x="9" y="0" width="410" height="18" uuid="83475a18-f8d7-4cc0-bbc9-8c9a672456c2"/>
 					<textFieldExpression><![CDATA[$F{label}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField evaluationTime="Band">
 					<reportElement x="430" y="0" width="86" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
-					<textElement textAlignment="Center"/>
+					<textElement textAlignment="Center">
+						<font isBold="false"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{amount}.trim()]]></textFieldExpression>
 				</textField>
 				<line>
@@ -548,7 +561,7 @@ Aduana Nacional]]></text>
 						<font isBold="false"/>
 						<paragraph lineSpacingSize="1.0"/>
 					</textElement>
-					<text><![CDATA[TOTAL FACTURA No      ]]></text>
+					<text><![CDATA[TOTAL FACTURA Nº      ]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="99" y="181" width="111" height="14" uuid="30ad1530-5689-44a5-acac-02b525d091d7"/>
@@ -556,7 +569,7 @@ Aduana Nacional]]></text>
 						<font isBold="false"/>
 						<paragraph lineSpacingSize="1.0"/>
 					</textElement>
-					<text><![CDATA[TOTAL PLANILLA No]]></text>
+					<text><![CDATA[TOTAL PLANILLA Nº]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="99" y="195" width="201" height="14" uuid="8610042b-57d4-40ee-aa89-3c5c3fa0e016"/>
@@ -588,7 +601,9 @@ Aduana Nacional]]></text>
 					<reportElement x="430" y="94" width="86" height="15" uuid="39de23b9-7dde-47c7-a87c-8068c0ba5fe7">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textElement textAlignment="Center"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{spreadsheet_total_amount}.trim()]]></textFieldExpression>
 				</textField>
 				<textField>
@@ -635,7 +650,7 @@ Aduana Nacional]]></text>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textFieldExpression><![CDATA[$F{spreadsheet_total_amount_str}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["SON : "+$F{spreadsheet_total_amount_str}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="220" y="167" width="86" height="15" uuid="0ef0fb8a-14b1-4b6c-b974-df87047e7693">

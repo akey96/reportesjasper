@@ -9,5 +9,6 @@
 	<classpathentry exported="true" kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/alex/Escritorio/java_path/core-2.3.0.jar"/>
 	<classpathentry kind="lib" path="/home/alex/Escritorio/java_path/zxing-j2se-1.7.jar"/>
+	<classpathentry kind="lib" path="/home/alex/NetBeansProjects/FechaAgenal/dist/FechaAgenal.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

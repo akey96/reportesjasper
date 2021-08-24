@@ -8,8 +8,14 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="id_factura" class="java.lang.Long"/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
+	<parameter name="label_original" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select * from invoices as i join invoice_items as ii on i.id = ii.invoice_id where i.id =$P{id_factura}]]>
+		<![CDATA[SELECT *
+FROM invoices AS i
+	join invoice_items AS ii ON 
+	 i.id = ii.invoice_id 
+WHERE 
+	 i.id = $P{id_factura}]]>
 	</queryString>
 	<field name="id" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="id"/>
@@ -113,7 +119,7 @@
 	</field>
 	<group name="cover">
 		<groupHeader>
-			<part uuid="ee9a9a13-dca8-4859-9c40-af8b27f2305d">
+			<part uuid="ffa59d48-8992-4eb2-be8b-dfde9a351bda">
 				<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
 					<subreportParameter name="REPORT_CONNECTION">
 						<subreportParameterExpression><![CDATA[$P{REPORT_CONNECTION}]]></subreportParameterExpression>
@@ -121,12 +127,18 @@
 					<subreportParameter name="id_factura">
 						<subreportParameterExpression><![CDATA[$P{id_factura}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportExpression><![CDATA["facturaImportacion.jasper"]]></subreportExpression>
+					<subreportParameter name="label_original">
+						<subreportParameterExpression><![CDATA[$P{label_original}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="id_planilla">
+						<subreportParameterExpression><![CDATA[$P{id_planilla}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportExpression><![CDATA["facturaExportacion.jasper"]]></subreportExpression>
 				</p:subreportPart>
 			</part>
 		</groupHeader>
 		<groupFooter>
-			<part uuid="d37de289-b3e5-4cc0-86cf-7e1f44cf9a4b">
+			<part uuid="b75132b8-4711-4cab-86f5-79ab0f11a2f9">
 				<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
 					<subreportParameter name="REPORT_CONNECTION">
 						<subreportParameterExpression><![CDATA[$P{REPORT_CONNECTION}]]></subreportParameterExpression>
@@ -134,7 +146,7 @@
 					<subreportParameter name="id_planilla">
 						<subreportParameterExpression><![CDATA[$P{id_planilla}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportExpression><![CDATA["planillaImportacion.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA["planillaExportacion.jasper"]]></subreportExpression>
 				</p:subreportPart>
 			</part>
 		</groupFooter>
