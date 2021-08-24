@@ -77,4 +77,15 @@
 		<item key="dialogWidth" value="832"/>
 		<item key="dialogHeight" value="756"/>
 	</section>
+	<section name="com.jaspersoft.studio.jface.dialogs.SubreportSelectionDialog">
+		<item key="dialogX" value="636"/>
+		<item key="dialogY" value="315"/>
+		<item key="dialogWidth" value="648"/>
+		<item key="dialogHeight" value="365"/>
+		<item key="DIALOG_X_ORIGIN" value="636"/>
+		<item key="DIALOG_Y_ORIGIN" value="279"/>
+		<item key="DIALOG_WIDTH" value="648"/>
+		<item key="DIALOG_HEIGHT" value="365"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
 </section>

@@ -2,43 +2,207 @@
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d30345c7-3f92-4983-ac78-0c2e5c285486">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pruebaAgenal"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
 	<property name="ireport.jasperserver.url" value="http://192.168.122.209:8080/jasperserver/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.report.resource" value="/reports/notaCredito_files/main_jrxml"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/notaCredito"/>
+	<parameter name="id_credito" class="java.lang.Long">
+		<parameterDescription><![CDATA[Id para  nota de credito]]></parameterDescription>
+	</parameter>
 	<queryString language="SQL">
-		<![CDATA[select * from factura]]>
+		<![CDATA[SELECT *
+FROM agencies, 
+credit_notes cn
+FULL OUTER JOIN
+customers c ON c.id = cn.id
+WHERE
+c.id=$P{id_credito}]]>
 	</queryString>
-	<field name="id" class="java.lang.Integer">
+	<field name="id" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="id"/>
 		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
 	</field>
-	<field name="empresa" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="empresa"/>
-		<property name="com.jaspersoft.studio.field.label" value="empresa"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="nit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nit"/>
+		<property name="com.jaspersoft.studio.field.label" value="nit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
 	</field>
-	<field name="producto" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="producto"/>
-		<property name="com.jaspersoft.studio.field.label" value="producto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="social_reason" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="social_reason"/>
+		<property name="com.jaspersoft.studio.field.label" value="social_reason"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
 	</field>
-	<field name="unidades" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="unidades"/>
-		<property name="com.jaspersoft.studio.field.label" value="unidades"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="economic_activity" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="economic_activity"/>
+		<property name="com.jaspersoft.studio.field.label" value="economic_activity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
 	</field>
-	<field name="tipo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
-		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="legend_one" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="legend_one"/>
+		<property name="com.jaspersoft.studio.field.label" value="legend_one"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
 	</field>
-	<field name="total" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="total"/>
-		<property name="com.jaspersoft.studio.field.label" value="total"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="legend_two" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="legend_two"/>
+		<property name="com.jaspersoft.studio.field.label" value="legend_two"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
+	</field>
+	<field name="created_at" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
+	</field>
+	<field name="updated_at" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
+	</field>
+	<field name="COLUMN_9" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="issued_in_department" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="issued_in_department"/>
+		<property name="com.jaspersoft.studio.field.label" value="issued_in_department"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="issued_in_department_short" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="issued_in_department_short"/>
+		<property name="com.jaspersoft.studio.field.label" value="issued_in_department_short"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="branch_identifier" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="branch_identifier"/>
+		<property name="com.jaspersoft.studio.field.label" value="branch_identifier"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="issued_in_year" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="issued_in_year"/>
+		<property name="com.jaspersoft.studio.field.label" value="issued_in_year"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="assigned_number" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="assigned_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="assigned_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="issued_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="issued_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="issued_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="detail" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="detail"/>
+		<property name="com.jaspersoft.studio.field.label" value="detail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="amount_total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="amount_total"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount_total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="amount_total_str" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="amount_total_str"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount_total_str"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="deposit_bank_origin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="deposit_bank_origin"/>
+		<property name="com.jaspersoft.studio.field.label" value="deposit_bank_origin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="voucher_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="voucher_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="voucher_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="number_cheque" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="number_cheque"/>
+		<property name="com.jaspersoft.studio.field.label" value="number_cheque"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="deposit_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="deposit_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="deposit_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="bank_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bank_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="bank_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="account_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="account_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="account_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="issued_with_customer_ci" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="issued_with_customer_ci"/>
+		<property name="com.jaspersoft.studio.field.label" value="issued_with_customer_ci"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="customer_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="customer_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="period_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="period_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="period_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="COLUMN_28" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="COLUMN_29" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="COLUMN_30" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_nit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_nit"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_nit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_ci" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_ci"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_ci"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_phone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_phone"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_phone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_current_balance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="customer_current_balance"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_current_balance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="COLUMN_36" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="COLUMN_37" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -47,14 +211,6 @@
 		<band height="69" splitType="Stretch">
 			<frame>
 				<reportElement x="20" y="0" width="519" height="68" uuid="7b19c268-f79f-489f-8e96-21a8d4fcfb0b"/>
-				<staticText>
-					<reportElement x="271" y="23" width="220" height="40" uuid="ec99edba-69de-465d-abc2-d0e4727c9b36"/>
-					<textElement>
-						<font size="12" isBold="true"/>
-					</textElement>
-					<text><![CDATA[AGENCIA DESPACHANTE DE ADUANA
-AGENAL ANTONIO YUTRONIC S.A.]]></text>
-				</staticText>
 				<image>
 					<reportElement x="1" y="0" width="160" height="68" uuid="80d892c5-495e-48ec-996d-7fe4fa5a9b00">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -62,6 +218,10 @@ AGENAL ANTONIO YUTRONIC S.A.]]></text>
 					</reportElement>
 					<imageExpression><![CDATA["LogoAjayu2.png"]]></imageExpression>
 				</image>
+				<textField>
+					<reportElement x="178" y="19" width="330" height="30" uuid="1c3c6fd1-1c56-4076-bdab-6be94af17949"/>
+					<textFieldExpression><![CDATA[$F{social_reason}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</title>
@@ -104,52 +264,56 @@ AGENAL ANTONIO YUTRONIC S.A.]]></text>
 					<text><![CDATA[Bs  .-]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="427" y="2" width="92" height="16" uuid="ea5eeb8d-5f6f-4569-a7b0-4e396de414cd"/>
-					<textElement textAlignment="Center"/>
-					<text><![CDATA[257/2021]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="427" y="21" width="92" height="16" uuid="29c294c0-8b7a-4fe7-b4f5-0fe9b57d6ccf"/>
-					<textElement textAlignment="Center"/>
-					<text><![CDATA[02/07/2021]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="427" y="40" width="92" height="16" uuid="f748c989-c0a5-45d8-9b11-833a681d4f22"/>
-					<textElement textAlignment="Center"/>
-					<text><![CDATA[5,708.00]]></text>
-				</staticText>
-				<staticText>
 					<reportElement x="8" y="64" width="42" height="14" uuid="85918501-088e-40f0-83e2-038e0db524c2"/>
-					<text><![CDATA[Codigo  :]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="53" y="64" width="72" height="14" uuid="285cfa3c-f077-4620-b857-a1cccaa9abb0"/>
-					<text><![CDATA[11200049]]></text>
+					<text><![CDATA[NIT/CI :]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="133" y="64" width="42" height="14" uuid="ca7e2295-226f-4566-b5fb-b09208a77468"/>
 					<text><![CDATA[Cliente  :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="178" y="64" width="332" height="14" uuid="6c3a18f2-7c76-4287-b20c-4ff56b25a2c8"/>
-					<text><![CDATA[INDUSTRIAS ELECTROMECANICAS FEMCO S.R.L.  -  1]]></text>
-				</staticText>
-				<staticText>
 					<reportElement x="8" y="80" width="82" height="14" uuid="ab8f8ce8-284d-4265-8a14-c261e8900b5e"/>
 					<text><![CDATA[Nro de cuenta  :]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="91" y="80" width="72" height="14" uuid="b772cd98-8a39-403f-88fe-6cb153da7a55"/>
-					<text><![CDATA[11200049]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="174" y="80" width="45" height="14" uuid="00383ba5-827d-40ce-b3d8-83c8e53d5b7a"/>
 					<text><![CDATA[Banco  :]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="220" y="80" width="123" height="14" uuid="21870804-e376-4478-90de-28420438f690"/>
-					<text><![CDATA[Union]]></text>
-				</staticText>
+				<textField>
+					<reportElement x="428" y="2" width="89" height="16" uuid="62119731-9d7f-4853-a085-9fbf5f1c7f31"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{issued_in_department_short}+$F{branch_identifier}+$F{issued_in_year}+$F{assigned_number}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="428" y="21" width="89" height="16" uuid="21f0839d-890e-46ac-91a4-2ecf38c1a2e5"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($F{issued_date})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="428" y="41" width="89" height="16" uuid="660ea43f-fe16-4a58-a030-ba9d7bdbdc6a"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{amount_total}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="53" y="64" width="77" height="15" uuid="a7cc70a5-adc0-427c-8137-e3fa55585d6b"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$F{issued_with_customer_ci}? $F{customer_ci}:$F{customer_nit}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="178" y="64" width="332" height="15" uuid="e534c255-02e7-428b-8165-c596f8716e69"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="93" y="80" width="77" height="15" uuid="89bbbe49-0dfb-48b2-be5a-a23132c29999"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$F{account_code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="221" y="80" width="289" height="15" uuid="4160e11b-4f96-460b-be3b-1fbaaaab6785"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$F{bank_name}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</pageHeader>
@@ -188,22 +352,11 @@ AGENAL ANTONIO YUTRONIC S.A.]]></text>
 					<text><![CDATA[SON  : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="47" y="133" width="466" height="21" uuid="8206b3f7-4b8f-44be-895f-747d2c07f4f0"/>
-					<text><![CDATA[CINCO MIL SETECIENTOS OCHO  00/100   BOLIVIANOS]]></text>
-				</staticText>
-				<staticText>
 					<reportElement x="13" y="11" width="107" height="20" uuid="82caf508-3fcb-430a-b989-321bff3b42d3"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[POR CONCEPTO DE  : ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="121" y="11" width="389" height="20" uuid="063e81b2-a32b-4511-ae4b-99b39993397e"/>
-					<textElement>
-						<font isBold="true"/>
-					</textElement>
-					<text><![CDATA[PLANILLAS]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="14" y="33" width="96" height="20" uuid="35048f3e-1897-47cc-a1bf-cc059716888c"/>
@@ -212,38 +365,51 @@ AGENAL ANTONIO YUTRONIC S.A.]]></text>
 					</textElement>
 					<text><![CDATA[FORMA DE PAGO  :]]></text>
 				</staticText>
-				<textField>
-					<reportElement x="120" y="33" width="100" height="20" uuid="6eef53da-6839-4ca6-9b45-46c8190bd455"/>
-					<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
-				</textField>
 				<staticText>
 					<reportElement x="122" y="56" width="78" height="20" uuid="3e7de6c7-6de3-4025-be22-51f93db201aa"/>
-					<textElement>
+					<textElement textAlignment="Right">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Cuenta origen : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="122" y="79" width="68" height="20" uuid="784e5f59-9291-4192-b042-0dc1347568e0"/>
-					<textElement>
+					<reportElement x="123" y="98" width="77" height="20" uuid="784e5f59-9291-4192-b042-0dc1347568e0"/>
+					<textElement textAlignment="Right">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Nro Cheque : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="122" y="102" width="52" height="20" uuid="9ace8130-1fcb-4323-bbd4-621b501fc211"/>
-					<textElement>
+					<reportElement x="124" y="77" width="76" height="20" uuid="9ace8130-1fcb-4323-bbd4-621b501fc211"/>
+					<textElement textAlignment="Right">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Voucher :]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="202" y="56" width="278" height="20" uuid="e985a141-bb8e-4756-bb08-d1ee70df2908"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[XXXXXXXXXXXXXXXXXXXXXXXXXX]]></text>
-				</staticText>
+				<textField>
+					<reportElement x="130" y="11" width="380" height="20" uuid="209591b6-6d90-4c35-8097-4092374ae34b"/>
+					<textFieldExpression><![CDATA[$F{detail}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="114" y="33" width="396" height="20" uuid="d94794e9-2e06-4f67-8580-0860587f7a88"/>
+					<textFieldExpression><![CDATA[$F{deposit_type}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="53" y="133" width="457" height="20" uuid="a8c8ca68-decb-498d-bfe7-0776f0a0da2f"/>
+					<textFieldExpression><![CDATA[$F{amount_total_str}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="202" y="56" width="308" height="20" uuid="c10b31c0-1cbc-46ce-9229-1b5a0c335cbf"/>
+					<textFieldExpression><![CDATA[$F{deposit_bank_origin}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="202" y="77" width="308" height="20" uuid="88717e57-f3ef-4b98-9eb1-28f1ae8a2986"/>
+					<textFieldExpression><![CDATA[$F{voucher_number}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="202" y="98" width="308" height="20" uuid="6274e357-55f2-487d-8547-83a3b379fe94"/>
+					<textFieldExpression><![CDATA[$F{number_cheque}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</summary>

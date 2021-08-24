@@ -2,49 +2,49 @@
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92901d70-03a5-4e87-a7d8-eb07220d70ad">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pruebaAgenal"/>
-	<property name="ireport.jasperserver.url" value="http://192.168.122.209:8080/jasperserver/"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
+	<property name="ireport.jasperserver.url" value="http://181.115.181.116:8080//jasperserver/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.report.resource" value="/reports/facturaSimple_files/main_jrxml"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/facturaSimple"/>
 	<queryString language="SQL">
-		<![CDATA[select * from factura]]>
+		<![CDATA[select * from permissions]]>
 	</queryString>
-	<field name="id" class="java.lang.Integer">
+	<field name="id" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="id"/>
 		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="permissions"/>
 	</field>
-	<field name="empresa" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="empresa"/>
-		<property name="com.jaspersoft.studio.field.label" value="empresa"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="permissions"/>
 	</field>
-	<field name="producto" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="producto"/>
-		<property name="com.jaspersoft.studio.field.label" value="producto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="name_es" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name_es"/>
+		<property name="com.jaspersoft.studio.field.label" value="name_es"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="permissions"/>
 	</field>
-	<field name="unidades" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="unidades"/>
-		<property name="com.jaspersoft.studio.field.label" value="unidades"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="guard_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="guard_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="guard_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="permissions"/>
 	</field>
-	<field name="tipo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
-		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="created_at" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="permissions"/>
 	</field>
-	<field name="total" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="total"/>
-		<property name="com.jaspersoft.studio.field.label" value="total"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	<field name="updated_at" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="permissions"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="119" splitType="Stretch">
+		<band height="246" splitType="Stretch">
 			<frame>
 				<reportElement x="20" y="0" width="519" height="119" uuid="8f3a9e1a-d3ea-4062-964e-f215b2d910e6"/>
 				<image>
@@ -104,75 +104,68 @@
 					<text><![CDATA[AGENCIA DESPACHANTE DE ADUANAS]]></text>
 				</staticText>
 			</frame>
+			<rectangle>
+				<reportElement x="20" y="220" width="519" height="26" uuid="2d064567-cbc0-473d-a9e0-f2b00343650f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="27" y="223" width="390" height="20" uuid="01868572-ce08-46a4-91a2-6b6243233610"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCEPTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="223" width="104" height="20" uuid="3a9b4d3f-7a5d-45e5-b51d-bd0990b8dc46"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL Bs.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="428" y="220" width="1" height="25" uuid="86074630-c494-4a74-a4ec-9562d4bb4a7c"/>
+			</line>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="111" splitType="Stretch">
+		<band splitType="Stretch">
 			<frame>
-				<reportElement x="20" y="0" width="520" height="110" uuid="7178a101-4323-433e-a3dd-b27e4363d79c"/>
+				<reportElement x="20" y="-122" width="520" height="94" uuid="7178a101-4323-433e-a3dd-b27e4363d79c"/>
 				<staticText>
-					<reportElement x="170" y="18" width="180" height="30" uuid="4994451b-0ddc-41df-a0f4-5519c5b90016"/>
+					<reportElement x="170" y="8" width="180" height="30" uuid="4994451b-0ddc-41df-a0f4-5519c5b90016"/>
 					<textElement textAlignment="Center">
 						<font size="20" isBold="true"/>
 					</textElement>
 					<text><![CDATA[FACTURA]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="8" y="64" width="92" height="14" uuid="85c76965-176a-460e-8076-f50e464b2336"/>
+					<reportElement x="5" y="67" width="92" height="14" uuid="85c76965-176a-460e-8076-f50e464b2336"/>
 					<text><![CDATA[LUGAR Y FECHA  :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="101" y="64" width="416" height="14" uuid="6356c621-e115-422b-8960-bbf088e0b19d"/>
+					<reportElement x="98" y="67" width="416" height="14" uuid="6356c621-e115-422b-8960-bbf088e0b19d"/>
 					<text><![CDATA[COCHABAMBA, 09 DE JULIO DE 2021]]></text>
 				</staticText>
 			</frame>
 			<staticText>
-				<reportElement x="28" y="80" width="64" height="14" uuid="b649b2f0-9b69-43f3-8ae7-524195fb64a0"/>
+				<reportElement x="25" y="-73" width="64" height="14" uuid="b649b2f0-9b69-43f3-8ae7-524195fb64a0"/>
 				<text><![CDATA[SEÑOR(ES)  : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="91" y="80" width="148" height="14" uuid="3b5d1a08-2f58-45f6-afb9-059d3412de5a"/>
+				<reportElement x="88" y="-73" width="148" height="14" uuid="3b5d1a08-2f58-45f6-afb9-059d3412de5a"/>
 				<text><![CDATA[INDUSTRIAS DE ACEITE S.A.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="398" y="80" width="52" height="14" uuid="842882e0-234a-4f43-8f62-a7cdf8c59ac1"/>
+				<reportElement x="395" y="-73" width="52" height="14" uuid="842882e0-234a-4f43-8f62-a7cdf8c59ac1"/>
 				<text><![CDATA[N.I.T / C.I.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="80" width="88" height="14" uuid="3c60797a-e6f8-4387-aa21-507f48d787f3"/>
+				<reportElement x="447" y="-73" width="88" height="14" uuid="3c60797a-e6f8-4387-aa21-507f48d787f3"/>
 				<text><![CDATA[1235467442]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="32" splitType="Stretch">
-			<frame>
-				<reportElement x="20" y="0" width="520" height="32" uuid="34ed1f0e-8c14-44d6-b856-d1db21e587a7"/>
-				<line>
-					<reportElement x="519" y="1" width="1" height="31" uuid="c5e050c6-d460-4b8d-9193-fbc638d336f9"/>
-				</line>
-				<rectangle>
-					<reportElement x="0" y="0" width="519" height="31" uuid="cc1f504f-242e-490c-8421-66218e08db9b"/>
-				</rectangle>
-				<staticText>
-					<reportElement x="9" y="5" width="390" height="20" uuid="c34c364b-dd8a-43c4-b073-52578946b99b"/>
-					<textElement textAlignment="Center">
-						<font size="14" isBold="true"/>
-					</textElement>
-					<text><![CDATA[CONCEPTO]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="414" y="5" width="104" height="20" uuid="5c4b1f7a-db25-4416-bd86-5a362c1029d9"/>
-					<textElement>
-						<font size="14" isBold="true"/>
-					</textElement>
-					<text><![CDATA[SUBTOTAL Bs.]]></text>
-				</staticText>
-				<line>
-					<reportElement x="408" y="1" width="1" height="30" uuid="fe936ef0-36ed-43bc-a887-49144e2a1d2e"/>
-				</line>
-			</frame>
-		</band>
+		<band height="10" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="18" splitType="Stretch">
@@ -186,35 +179,59 @@
 				</line>
 				<textField>
 					<reportElement x="9" y="0" width="100" height="18" uuid="83475a18-f8d7-4cc0-bbc9-8c9a672456c2"/>
-					<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="119" y="0" width="100" height="18" uuid="5ded125a-36b2-44a1-a52b-f2fe04dc4930"/>
-					<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{name_es}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="229" y="0" width="100" height="18" uuid="2ddcd11f-f553-4a9a-b70e-f5ecd5aa0ff9"/>
-					<textFieldExpression><![CDATA[$F{unidades}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="334" y="0" width="56" height="18" uuid="fa04728f-273d-4eb2-9c09-228f6267a4a8"/>
-					<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="450" y="0" width="58" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
-					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement x="408" y="0" width="1" height="18" uuid="af60fd5f-e02c-443f-b415-5f37fe4e989c"/>
+				</line>
+				<line>
+					<reportElement x="0" y="-10" width="1" height="10" uuid="30be97b9-4c44-441f-b399-bb6d9593aa0c"/>
+				</line>
+				<line>
+					<reportElement x="408" y="-10" width="1" height="10" uuid="7e7bec36-4536-4281-ad14-560e95056eea"/>
+				</line>
+				<line>
+					<reportElement x="519" y="-10" width="1" height="10" uuid="cb74bcd0-a2f8-460d-90f5-4e854b8b2f0d"/>
 				</line>
 			</frame>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="26" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="32" splitType="Stretch"/>
+		<band height="32" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="45" y="0" width="170" height="20" uuid="cb6a82bc-ba5e-4594-b303-adf51e6997f9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="-1" width="100" height="20" uuid="f10d838a-e136-46bf-b9ad-3aef3c8e3cd5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="464" y="-1" width="75" height="20" uuid="5f545f3f-31dc-453f-890f-7844e20142eb"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="260" splitType="Stretch">
@@ -243,10 +260,13 @@
 					<reportElement x="408" y="90" width="1" height="20" uuid="066ef560-b0b0-4110-8563-8d717d7ed9ba"/>
 				</line>
 				<image>
-					<reportElement x="452" y="136" width="68" height="64" uuid="39fda23a-c893-4e03-9eab-0c82e4761eb1"/>
+					<reportElement x="450" y="136" width="68" height="68" uuid="39fda23a-c893-4e03-9eab-0c82e4761eb1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
     new com.google.zxing.qrcode.QRCodeWriter().encode(
-            $F{empresa}+"|"+$F{producto}+"|"+$F{unidades}+"|"+$F{total}, com.google.zxing.BarcodeFormat.QR_CODE, 300, 300));]]></imageExpression>
+           "asdadasd", com.google.zxing.BarcodeFormat.QR_CODE, 600, 600));]]></imageExpression>
 				</image>
 				<line>
 					<reportElement x="0" y="205" width="520" height="1" uuid="cb4d3013-cb06-4d43-beba-34d539586f56"/>
