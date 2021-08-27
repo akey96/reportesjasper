@@ -11,87 +11,75 @@
 		<parameterDescription><![CDATA[Id para  nota de credito]]></parameterDescription>
 	</parameter>
 	<queryString language="SQL">
-		<![CDATA[SELECT *
-FROM agencies, 
-credit_notes cn
-FULL OUTER JOIN
-customers c ON c.id = cn.id
-WHERE
-c.id=$P{id_credito}]]>
+		<![CDATA[SELECT
+ag.social_reason,
+cn.issued_in_department,
+CONCAT(cn.issued_in_department_short,cn.branch_identifier,cn.issued_in_year,'-',cn.assigned_number) as internal_number,
+cn.issued_date,
+cn.issued_with_customer_ci,
+c.customer_ci,
+c.customer_nit,
+c.customer_name,
+cn.account_code,
+cn.bank_name,
+cn.detail,
+cn.deposit_type,
+cn.deposit_bank_origin,
+cn.voucher_number,
+cn.number_cheque,
+to_char(cn.amount_total, '999,999,999.99') as amount_total,
+cn.amount_total_str
+FROM agencies ag, credit_notes cn
+FULL OUTER JOIN customers c ON c.id = cn.customer_id
+WHERE cn.id= $P{id_credito}]]>
 	</queryString>
-	<field name="id" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="id"/>
-		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="nit" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nit"/>
-		<property name="com.jaspersoft.studio.field.label" value="nit"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
 	<field name="social_reason" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="social_reason"/>
 		<property name="com.jaspersoft.studio.field.label" value="social_reason"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="economic_activity" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="economic_activity"/>
-		<property name="com.jaspersoft.studio.field.label" value="economic_activity"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="legend_one" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="legend_one"/>
-		<property name="com.jaspersoft.studio.field.label" value="legend_one"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="legend_two" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="legend_two"/>
-		<property name="com.jaspersoft.studio.field.label" value="legend_two"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="created_at" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
-		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="updated_at" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
-		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="agencies"/>
-	</field>
-	<field name="COLUMN_9" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="id"/>
-		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
 	<field name="issued_in_department" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="issued_in_department"/>
 		<property name="com.jaspersoft.studio.field.label" value="issued_in_department"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
-	<field name="issued_in_department_short" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="issued_in_department_short"/>
-		<property name="com.jaspersoft.studio.field.label" value="issued_in_department_short"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="branch_identifier" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="branch_identifier"/>
-		<property name="com.jaspersoft.studio.field.label" value="branch_identifier"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="issued_in_year" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="issued_in_year"/>
-		<property name="com.jaspersoft.studio.field.label" value="issued_in_year"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="assigned_number" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="assigned_number"/>
-		<property name="com.jaspersoft.studio.field.label" value="assigned_number"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	<field name="internal_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="internal_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="internal_number"/>
 	</field>
 	<field name="issued_date" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.name" value="issued_date"/>
 		<property name="com.jaspersoft.studio.field.label" value="issued_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="issued_with_customer_ci" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="issued_with_customer_ci"/>
+		<property name="com.jaspersoft.studio.field.label" value="issued_with_customer_ci"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="customer_ci" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_ci"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_ci"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_nit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_nit"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_nit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+	</field>
+	<field name="account_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="account_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="account_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
+	</field>
+	<field name="bank_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bank_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="bank_name"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
 	<field name="detail" class="java.lang.String">
@@ -99,14 +87,9 @@ c.id=$P{id_credito}]]>
 		<property name="com.jaspersoft.studio.field.label" value="detail"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
-	<field name="amount_total" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.name" value="amount_total"/>
-		<property name="com.jaspersoft.studio.field.label" value="amount_total"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="amount_total_str" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="amount_total_str"/>
-		<property name="com.jaspersoft.studio.field.label" value="amount_total_str"/>
+	<field name="deposit_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="deposit_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="deposit_type"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
 	<field name="deposit_bank_origin" class="java.lang.String">
@@ -124,85 +107,15 @@ c.id=$P{id_credito}]]>
 		<property name="com.jaspersoft.studio.field.label" value="number_cheque"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
-	<field name="deposit_type" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="deposit_type"/>
-		<property name="com.jaspersoft.studio.field.label" value="deposit_type"/>
+	<field name="amount_total" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="amount_total"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount_total"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
 	</field>
-	<field name="bank_name" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="bank_name"/>
-		<property name="com.jaspersoft.studio.field.label" value="bank_name"/>
+	<field name="amount_total_str" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="amount_total_str"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount_total_str"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="account_code" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="account_code"/>
-		<property name="com.jaspersoft.studio.field.label" value="account_code"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="issued_with_customer_ci" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.name" value="issued_with_customer_ci"/>
-		<property name="com.jaspersoft.studio.field.label" value="issued_with_customer_ci"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="customer_id" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="customer_id"/>
-		<property name="com.jaspersoft.studio.field.label" value="customer_id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="period_id" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="period_id"/>
-		<property name="com.jaspersoft.studio.field.label" value="period_id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="COLUMN_28" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
-		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="COLUMN_29" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
-		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="credit_notes"/>
-	</field>
-	<field name="COLUMN_30" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="id"/>
-		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="customer_name" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="customer_name"/>
-		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="customer_nit" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="customer_nit"/>
-		<property name="com.jaspersoft.studio.field.label" value="customer_nit"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="customer_ci" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="customer_ci"/>
-		<property name="com.jaspersoft.studio.field.label" value="customer_ci"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="customer_phone" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="customer_phone"/>
-		<property name="com.jaspersoft.studio.field.label" value="customer_phone"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="customer_current_balance" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.name" value="customer_current_balance"/>
-		<property name="com.jaspersoft.studio.field.label" value="customer_current_balance"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="COLUMN_36" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
-		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
-	</field>
-	<field name="COLUMN_37" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
-		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -219,7 +132,10 @@ c.id=$P{id_credito}]]>
 					<imageExpression><![CDATA["LogoAjayu2.png"]]></imageExpression>
 				</image>
 				<textField>
-					<reportElement x="178" y="19" width="330" height="30" uuid="1c3c6fd1-1c56-4076-bdab-6be94af17949"/>
+					<reportElement x="170" y="10" width="342" height="50" uuid="d84c7c5c-b521-43ac-b813-182aee9fd5b9"/>
+					<textElement textAlignment="Center">
+						<font size="16"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{social_reason}]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -242,8 +158,8 @@ c.id=$P{id_credito}]]>
 					<reportElement x="0" y="58" width="520" height="42" uuid="0343c810-f1d0-4400-8c18-52206e53d46f"/>
 				</rectangle>
 				<staticText>
-					<reportElement x="110" y="18" width="180" height="30" uuid="6a41350e-d547-40c3-be9a-8bc80e007a16"/>
-					<textElement>
+					<reportElement x="110" y="18" width="220" height="30" uuid="6a41350e-d547-40c3-be9a-8bc80e007a16"/>
+					<textElement textAlignment="Center">
 						<font size="18" isBold="true"/>
 					</textElement>
 					<text><![CDATA[NOTA DE CREDITO]]></text>
@@ -268,7 +184,9 @@ c.id=$P{id_credito}]]>
 					<text><![CDATA[NIT/CI :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="133" y="64" width="42" height="14" uuid="ca7e2295-226f-4566-b5fb-b09208a77468"/>
+					<reportElement x="133" y="64" width="52" height="14" uuid="ca7e2295-226f-4566-b5fb-b09208a77468">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<text><![CDATA[Cliente  :]]></text>
 				</staticText>
 				<staticText>
@@ -282,7 +200,7 @@ c.id=$P{id_credito}]]>
 				<textField>
 					<reportElement x="428" y="2" width="89" height="16" uuid="62119731-9d7f-4853-a085-9fbf5f1c7f31"/>
 					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{issued_in_department_short}+$F{branch_identifier}+$F{issued_in_year}+$F{assigned_number}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{internal_number}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="428" y="21" width="89" height="16" uuid="21f0839d-890e-46ac-91a4-2ecf38c1a2e5"/>
@@ -300,7 +218,9 @@ c.id=$P{id_credito}]]>
 					<textFieldExpression><![CDATA[$F{issued_with_customer_ci}? $F{customer_ci}:$F{customer_nit}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="178" y="64" width="332" height="15" uuid="e534c255-02e7-428b-8165-c596f8716e69"/>
+					<reportElement x="188" y="64" width="322" height="15" uuid="e534c255-02e7-428b-8165-c596f8716e69">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
 				</textField>
@@ -345,19 +265,17 @@ c.id=$P{id_credito}]]>
 					<textElement textAlignment="Center"/>
 					<text><![CDATA[AGENAL ANTONIO YUTRONIC S.A.]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="421" y="160" width="89" height="20" uuid="ef515e74-7530-4133-b02a-eaeaf61e4fc3"/>
-					<text><![CDATA[Cochabamba]]></text>
-				</staticText>
 				<rectangle>
 					<reportElement x="0" y="-1" width="520" height="161" uuid="9b8a6d0e-99c2-4886-93a3-5af8130826be"/>
 				</rectangle>
 				<staticText>
-					<reportElement x="14" y="133" width="31" height="21" uuid="25992c29-f30c-4925-910d-6da639957a79"/>
+					<reportElement x="14" y="133" width="36" height="21" uuid="25992c29-f30c-4925-910d-6da639957a79"/>
 					<text><![CDATA[SON  : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="13" y="11" width="107" height="20" uuid="82caf508-3fcb-430a-b989-321bff3b42d3"/>
+					<reportElement x="13" y="11" width="123" height="20" uuid="82caf508-3fcb-430a-b989-321bff3b42d3">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -371,28 +289,30 @@ c.id=$P{id_credito}]]>
 					<text><![CDATA[FORMA DE PAGO  :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="122" y="56" width="78" height="20" uuid="3e7de6c7-6de3-4025-be22-51f93db201aa"/>
+					<reportElement x="121" y="56" width="78" height="20" uuid="3e7de6c7-6de3-4025-be22-51f93db201aa"/>
 					<textElement textAlignment="Right">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Cuenta origen : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="123" y="98" width="77" height="20" uuid="784e5f59-9291-4192-b042-0dc1347568e0"/>
+					<reportElement x="122" y="98" width="77" height="20" uuid="784e5f59-9291-4192-b042-0dc1347568e0"/>
 					<textElement textAlignment="Right">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Nro Cheque : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="124" y="77" width="76" height="20" uuid="9ace8130-1fcb-4323-bbd4-621b501fc211"/>
+					<reportElement x="123" y="77" width="76" height="20" uuid="9ace8130-1fcb-4323-bbd4-621b501fc211"/>
 					<textElement textAlignment="Right">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Voucher :]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="130" y="11" width="380" height="20" uuid="209591b6-6d90-4c35-8097-4092374ae34b"/>
+					<reportElement x="140" y="11" width="370" height="20" uuid="209591b6-6d90-4c35-8097-4092374ae34b">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<textFieldExpression><![CDATA[$F{detail}]]></textFieldExpression>
 				</textField>
 				<textField>
@@ -400,12 +320,12 @@ c.id=$P{id_credito}]]>
 					<textFieldExpression><![CDATA[$F{deposit_type}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="53" y="133" width="457" height="20" uuid="a8c8ca68-decb-498d-bfe7-0776f0a0da2f"/>
+					<reportElement x="54" y="133" width="457" height="20" uuid="a8c8ca68-decb-498d-bfe7-0776f0a0da2f"/>
 					<textFieldExpression><![CDATA[$F{amount_total_str}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="202" y="56" width="308" height="20" uuid="c10b31c0-1cbc-46ce-9229-1b5a0c335cbf"/>
-					<textFieldExpression><![CDATA[$F{deposit_bank_origin}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{deposit_bank_origin}==null?"campo vacio": "lleno"]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="202" y="77" width="308" height="20" uuid="88717e57-f3ef-4b98-9eb1-28f1ae8a2986"/>
@@ -414,6 +334,13 @@ c.id=$P{id_credito}]]>
 				<textField>
 					<reportElement x="202" y="98" width="308" height="20" uuid="6274e357-55f2-487d-8547-83a3b379fe94"/>
 					<textFieldExpression><![CDATA[$F{number_cheque}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="370" y="160" width="147" height="20" uuid="42814167-3ab2-4299-8148-eedd05a00d4a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{issued_in_department}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

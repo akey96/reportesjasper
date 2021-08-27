@@ -185,7 +185,7 @@ where i.id =$P{id_factura}]]>
 					<text><![CDATA[LUGAR Y FECHA  :]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="74" y="80" width="276" height="15" uuid="0e663ac0-41f0-43f5-9673-fb5e184eb784">
+					<reportElement x="80" y="80" width="296" height="15" uuid="0e663ac0-41f0-43f5-9673-fb5e184eb784">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textFieldExpression><![CDATA[$F{customer_name}.toUpperCase()]]></textFieldExpression>
@@ -204,7 +204,9 @@ where i.id =$P{id_factura}]]>
 				</textField>
 			</frame>
 			<staticText>
-				<reportElement x="28" y="202" width="64" height="14" uuid="6fc54208-fe92-46f8-a08b-ee6e277d4d03"/>
+				<reportElement x="28" y="202" width="68" height="14" uuid="6fc54208-fe92-46f8-a08b-ee6e277d4d03">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<text><![CDATA[SEÑOR(ES)  : ]]></text>
 			</staticText>
 			<staticText>
@@ -278,7 +280,7 @@ where i.id =$P{id_factura}]]>
 				</textField>
 				<textField>
 					<reportElement x="411" y="0" width="104" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
-					<textElement textAlignment="Center"/>
+					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 				</textField>
 				<line>
@@ -321,20 +323,24 @@ where i.id =$P{id_factura}]]>
 					</reportElement>
 					<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
     new com.google.zxing.qrcode.QRCodeWriter().encode(
-            $F{nit}+"|"+$P{id_factura}+"|"+$F{authorization_number}+"|"+new SimpleDateFormat("dd/MM/yyyy").format($F{issued_date})+"|"+$F{total_amount}.trim()+"|"+$F{total_amount}.trim()+"|"+$F{control_code}+"|"+$F{customer_ci_nit}+"|0.00|0.00|0.00|0.00", com.google.zxing.BarcodeFormat.QR_CODE, 600, 600));]]></imageExpression>
+            $F{nit}+"|"+$F{assigned_invoice_number}+"|"+$F{authorization_number}+"|"+new SimpleDateFormat("dd/MM/yyyy").format($F{issued_date})+"|"+$F{total_amount}.trim()+"|"+$F{total_amount}.trim()+"|"+$F{control_code}+"|"+$F{customer_ci_nit}+"|0.00|0.00|0.00|0.00", com.google.zxing.BarcodeFormat.QR_CODE, 600, 600));]]></imageExpression>
 				</image>
 				<line>
 					<reportElement x="0" y="205" width="520" height="1" uuid="cb4d3013-cb06-4d43-beba-34d539586f56"/>
 				</line>
 				<staticText>
-					<reportElement x="8" y="185" width="142" height="14" uuid="71855f8d-4c26-459c-b442-911388f35a5b"/>
+					<reportElement x="6" y="185" width="162" height="14" uuid="71855f8d-4c26-459c-b442-911388f35a5b">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[FECHA LIMITE DE EMISION : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="8" y="166" width="122" height="14" uuid="a79389d7-d17c-4ce8-a82c-8bbbf1088d2d"/>
+					<reportElement x="6" y="166" width="132" height="14" uuid="a79389d7-d17c-4ce8-a82c-8bbbf1088d2d">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -351,7 +357,7 @@ where i.id =$P{id_factura}]]>
 					<reportElement x="415" y="92" width="100" height="17" uuid="71da04c2-b0a0-4a8e-96c8-88fbda60803c">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
@@ -361,19 +367,20 @@ where i.id =$P{id_factura}]]>
 					<textFieldExpression><![CDATA["SON : "+$F{total_amount_str}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="132" y="165" width="100" height="15" uuid="6b371ee5-8d0c-40d1-b1b2-2f21985011f1">
+					<reportElement x="142" y="165" width="264" height="15" uuid="6b371ee5-8d0c-40d1-b1b2-2f21985011f1">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textFieldExpression><![CDATA[$F{control_code}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="152" y="184" width="236" height="15" uuid="76485618-74b5-4f4a-9fd0-b660268018e7">
+					<reportElement x="172" y="184" width="236" height="15" uuid="76485618-74b5-4f4a-9fd0-b660268018e7">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($F{due_date})]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="21" y="206" width="478" height="28" uuid="720d24dc-77ca-4278-84ed-4325391e732d">
+					<reportElement x="1" y="206" width="517" height="28" uuid="720d24dc-77ca-4278-84ed-4325391e732d">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>

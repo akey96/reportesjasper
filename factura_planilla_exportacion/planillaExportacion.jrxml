@@ -9,13 +9,13 @@
 	<property name="ireport.jasperserver.reportUnit" value="/reports/factura_planilla_importacion_main"/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
 	<queryString language="SQL">
-		<![CDATA[select cus.customer_name,
+		<![CDATA[SELECT 
+cus.customer_name,
+to_char(ess.down_payment, '999,999,999.99') as down_payment,
 to_char(ess.spreadsheet_total_amount+invo.total_amount, '999,999,999.99') as total_resumen,
+to_char((ess.spreadsheet_total_amount+invo.total_amount) - ess.down_payment, '999,999,999.99') as total_balance,
+CONCAT(ess.issued_in_department_short,ess.branch_identifier,ess.issued_in_year,'-',ess.assigned_number) as internal_number,
  ess.issued_in_department,
- ess.branch_identifier,
- ess.issued_in_year,
- ess.assigned_number,
- ess.issued_in_department_short,
  ess.issued_date,
  ess.product,
  ess.product_destination,
@@ -34,7 +34,7 @@ to_char(ess.spreadsheet_total_amount+invo.total_amount, '999,999,999.99') as tot
  ess.spreadsheet_total_amount_str,
  to_char(invo.total_amount, '999,999,999.99') as total_amount,
  invo.assigned_invoice_number
-from customers as cus
+FROM customers as cus
 join exportation_spreadsheets as ess on cus.id = ess.customer_id
 join exportation_spreadsheet_items as essi on ess.id = essi.exportation_spreadsheet_id
 join invoices as invo on invo.id = ess.invoice_id
@@ -45,33 +45,25 @@ where ess.id = $P{id_planilla}]]>
 		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
 	</field>
+	<field name="down_payment" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="down_payment"/>
+		<property name="com.jaspersoft.studio.field.label" value="down_payment"/>
+	</field>
 	<field name="total_resumen" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="total_resumen"/>
 		<property name="com.jaspersoft.studio.field.label" value="total_resumen"/>
 	</field>
+	<field name="total_balance" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="total_balance"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_balance"/>
+	</field>
+	<field name="internal_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="internal_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="internal_number"/>
+	</field>
 	<field name="issued_in_department" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="issued_in_department"/>
 		<property name="com.jaspersoft.studio.field.label" value="issued_in_department"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
-	</field>
-	<field name="branch_identifier" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="branch_identifier"/>
-		<property name="com.jaspersoft.studio.field.label" value="branch_identifier"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
-	</field>
-	<field name="issued_in_year" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="issued_in_year"/>
-		<property name="com.jaspersoft.studio.field.label" value="issued_in_year"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
-	</field>
-	<field name="assigned_number" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="assigned_number"/>
-		<property name="com.jaspersoft.studio.field.label" value="assigned_number"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
-	</field>
-	<field name="issued_in_department_short" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="issued_in_department_short"/>
-		<property name="com.jaspersoft.studio.field.label" value="issued_in_department_short"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="exportation_spreadsheets"/>
 	</field>
 	<field name="issued_date" class="java.sql.Date">
@@ -182,7 +174,7 @@ where ess.id = $P{id_planilla}]]>
 					<textElement textAlignment="Center">
 						<font size="14" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{issued_in_department_short}+""+$F{branch_identifier}+""+$F{issued_in_year}+""+$F{assigned_number}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{internal_number}]]></textFieldExpression>
 				</textField>
 			</frame>
 			<frame>
@@ -290,8 +282,9 @@ FACTURA Bs.]]></text>
 					<textFieldExpression><![CDATA[$F{issued_in_department}+", "+FechaPersonalizada.fechaCadena($F{issued_date})]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="74" y="24" width="438" height="14" uuid="8ad15dd6-3795-43a2-bba1-1863f34ba6b8">
+					<reportElement x="82" y="24" width="430" height="14" uuid="8ad15dd6-3795-43a2-bba1-1863f34ba6b8">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
 				</textField>
@@ -362,7 +355,9 @@ FACTURA Bs.]]></text>
 				</textField>
 			</frame>
 			<staticText>
-				<reportElement x="28" y="106" width="64" height="14" uuid="e7020d42-33af-4415-9412-5e107cae4ce8"/>
+				<reportElement x="28" y="106" width="68" height="14" uuid="e7020d42-33af-4415-9412-5e107cae4ce8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<text><![CDATA[SEÑOR(ES)  : ]]></text>
 			</staticText>
 			<staticText>
@@ -450,7 +445,7 @@ FACTURA Bs.]]></text>
 				</textField>
 				<textField>
 					<reportElement x="430" y="0" width="86" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
-					<textElement textAlignment="Center"/>
+					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{amount}.trim()]]></textFieldExpression>
 				</textField>
 				<line>
@@ -620,7 +615,7 @@ Aduana Nacional]]></text>
 					<reportElement x="430" y="94" width="86" height="15" uuid="39de23b9-7dde-47c7-a87c-8068c0ba5fe7">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{spreadsheet_total_amount}.trim()]]></textFieldExpression>
@@ -653,7 +648,7 @@ Aduana Nacional]]></text>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{down_payment}.trim().equals(".00")?"0.00":$F{down_payment}.trim()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="341" y="224" width="86" height="15" uuid="416e2499-723b-4ffa-a21a-a5991c70944c">
@@ -662,7 +657,7 @@ Aduana Nacional]]></text>
 					<textElement textAlignment="Center">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{total_balance}.trim()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="2" y="115" width="515" height="20" uuid="9d90d7a0-1e97-40a4-9ff2-fad73b86c881">
@@ -683,7 +678,7 @@ Aduana Nacional]]></text>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Left"/>
-					<textFieldExpression><![CDATA[$F{issued_in_department_short}+""+$F{branch_identifier}+""+$F{issued_in_year}+""+$F{assigned_number}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{internal_number}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
