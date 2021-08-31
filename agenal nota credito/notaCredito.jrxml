@@ -210,7 +210,7 @@ WHERE cn.id= $P{id_credito}]]>
 				<textField>
 					<reportElement x="428" y="41" width="89" height="16" uuid="660ea43f-fe16-4a58-a030-ba9d7bdbdc6a"/>
 					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{amount_total}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{amount_total}.trim()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="53" y="64" width="77" height="15" uuid="a7cc70a5-adc0-427c-8137-e3fa55585d6b"/>
@@ -273,13 +273,13 @@ WHERE cn.id= $P{id_credito}]]>
 					<text><![CDATA[SON  : ]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="13" y="11" width="123" height="20" uuid="82caf508-3fcb-430a-b989-321bff3b42d3">
+					<reportElement x="13" y="11" width="487" height="20" uuid="82caf508-3fcb-430a-b989-321bff3b42d3">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[POR CONCEPTO DE  : ]]></text>
+					<text><![CDATA[POR CONCEPTO DE  :  Servicios aduaneros de importación/exportación]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="14" y="33" width="96" height="20" uuid="35048f3e-1897-47cc-a1bf-cc059716888c"/>
@@ -288,52 +288,13 @@ WHERE cn.id= $P{id_credito}]]>
 					</textElement>
 					<text><![CDATA[FORMA DE PAGO  :]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="121" y="56" width="78" height="20" uuid="3e7de6c7-6de3-4025-be22-51f93db201aa"/>
-					<textElement textAlignment="Right">
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[Cuenta origen : ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="122" y="98" width="77" height="20" uuid="784e5f59-9291-4192-b042-0dc1347568e0"/>
-					<textElement textAlignment="Right">
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[Nro Cheque : ]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="123" y="77" width="76" height="20" uuid="9ace8130-1fcb-4323-bbd4-621b501fc211"/>
-					<textElement textAlignment="Right">
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[Voucher :]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="140" y="11" width="370" height="20" uuid="209591b6-6d90-4c35-8097-4092374ae34b">
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textFieldExpression><![CDATA[$F{detail}]]></textFieldExpression>
-				</textField>
 				<textField>
 					<reportElement x="114" y="33" width="396" height="20" uuid="d94794e9-2e06-4f67-8580-0860587f7a88"/>
 					<textFieldExpression><![CDATA[$F{deposit_type}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="54" y="133" width="457" height="20" uuid="a8c8ca68-decb-498d-bfe7-0776f0a0da2f"/>
+					<reportElement stretchType="ContainerHeight" x="54" y="133" width="457" height="20" uuid="a8c8ca68-decb-498d-bfe7-0776f0a0da2f"/>
 					<textFieldExpression><![CDATA[$F{amount_total_str}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="202" y="56" width="308" height="20" uuid="c10b31c0-1cbc-46ce-9229-1b5a0c335cbf"/>
-					<textFieldExpression><![CDATA[$F{deposit_bank_origin}==null?"campo vacio": "lleno"]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="202" y="77" width="308" height="20" uuid="88717e57-f3ef-4b98-9eb1-28f1ae8a2986"/>
-					<textFieldExpression><![CDATA[$F{voucher_number}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="202" y="98" width="308" height="20" uuid="6274e357-55f2-487d-8547-83a3b379fe94"/>
-					<textFieldExpression><![CDATA[$F{number_cheque}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="370" y="160" width="147" height="20" uuid="42814167-3ab2-4299-8148-eedd05a00d4a">
@@ -341,6 +302,11 @@ WHERE cn.id= $P{id_credito}]]>
 					</reportElement>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{issued_in_department}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="114" y="60" width="386" height="72" uuid="f29c0f79-0401-44bf-b1fa-bb8dbdbd1097"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[FechaPersonalizada.contenidoNotaCredito($F{deposit_type}, $F{deposit_bank_origin},$F{voucher_number},$F{number_cheque})]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

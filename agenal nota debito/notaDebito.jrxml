@@ -10,6 +10,7 @@
 	<parameter name="id_debito" class="java.lang.Long"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
+dn.currency_abbreviation,
 ag.social_reason,
 dn.issued_in_department,
 CONCAT(dn.issued_in_department_short,dn.branch_identifier,dn.issued_in_year,'-',dn.assigned_number) as internal_number,
@@ -19,6 +20,7 @@ c.customer_ci,
 c.customer_nit,
 dn.issued_date,
 to_char(dn.amount_total_bs, '999,999,999.99') as amount_total_bs,
+to_char(dn.amount_total, '999,999,999.99') as amount_total,
 dn.amount_total_bs_str,
 dn.debit_order,
 dn.debit_commodity,
@@ -31,6 +33,11 @@ FULL OUTER JOIN debit_notes dn ON dn.id = dni.debit_note_id
 FULL OUTER JOIN customers c ON dn.customer_id = c.id
 WHERE dn.id = $P{id_debito}]]>
 	</queryString>
+	<field name="currency_abbreviation" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="currency_abbreviation"/>
+		<property name="com.jaspersoft.studio.field.label" value="currency_abbreviation"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="debit_notes"/>
+	</field>
 	<field name="social_reason" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="social_reason"/>
 		<property name="com.jaspersoft.studio.field.label" value="social_reason"/>
@@ -75,6 +82,10 @@ WHERE dn.id = $P{id_debito}]]>
 		<property name="com.jaspersoft.studio.field.label" value="amount_total_bs"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="debit_notes"/>
 	</field>
+	<field name="amount_total" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="amount_total"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount_total"/>
+	</field>
 	<field name="amount_total_bs_str" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="amount_total_bs_str"/>
 		<property name="com.jaspersoft.studio.field.label" value="amount_total_bs_str"/>
@@ -114,7 +125,8 @@ WHERE dn.id = $P{id_debito}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="214" splitType="Stretch">
+		<band height="251" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<frame>
 				<reportElement x="20" y="0" width="519" height="68" uuid="7b19c268-f79f-489f-8e96-21a8d4fcfb0b"/>
 				<image>
@@ -130,7 +142,9 @@ WHERE dn.id = $P{id_debito}]]>
 				</textField>
 			</frame>
 			<frame>
-				<reportElement x="20" y="68" width="520" height="120" uuid="4f10c391-1b50-4990-853a-81d290996897"/>
+				<reportElement x="20" y="68" width="520" height="139" uuid="4f10c391-1b50-4990-853a-81d290996897">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<rectangle>
 					<reportElement x="370" y="1" width="150" height="19" uuid="f2dda1b5-1051-44e8-a21c-68e350110e40"/>
 				</rectangle>
@@ -141,7 +155,7 @@ WHERE dn.id = $P{id_debito}]]>
 					<reportElement x="370" y="39" width="150" height="19" uuid="7d100f26-c245-484c-b1b1-187caf292011"/>
 				</rectangle>
 				<rectangle>
-					<reportElement x="0" y="58" width="520" height="62" uuid="0343c810-f1d0-4400-8c18-52206e53d46f"/>
+					<reportElement x="0" y="77" width="520" height="62" uuid="0343c810-f1d0-4400-8c18-52206e53d46f"/>
 				</rectangle>
 				<staticText>
 					<reportElement x="110" y="18" width="220" height="30" uuid="6a41350e-d547-40c3-be9a-8bc80e007a16">
@@ -168,11 +182,11 @@ WHERE dn.id = $P{id_debito}]]>
 					<text><![CDATA[Bs  .-]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="8" y="64" width="42" height="14" uuid="85918501-088e-40f0-83e2-038e0db524c2"/>
+					<reportElement x="8" y="83" width="42" height="14" uuid="85918501-088e-40f0-83e2-038e0db524c2"/>
 					<text><![CDATA[NIT/CI  :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="133" y="64" width="52" height="14" uuid="ca7e2295-226f-4566-b5fb-b09208a77468">
+					<reportElement x="133" y="83" width="52" height="14" uuid="ca7e2295-226f-4566-b5fb-b09208a77468">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<text><![CDATA[Cliente  :]]></text>
@@ -190,57 +204,78 @@ WHERE dn.id = $P{id_debito}]]>
 				<textField>
 					<reportElement x="428" y="41" width="90" height="15" uuid="cdd3e410-3399-4f23-b04d-884351516a07"/>
 					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{amount_total_bs}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{amount_total_bs}.trim()]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="64" y="80" width="445" height="15" uuid="09937e47-e1c7-4691-a0f3-b95ad48516a6">
+					<reportElement x="64" y="99" width="445" height="15" uuid="09937e47-e1c7-4691-a0f3-b95ad48516a6">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$F{debit_order}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="85" y="98" width="424" height="15" uuid="a233ab14-db78-48b4-9207-49faec35eba4">
+					<reportElement x="85" y="117" width="424" height="15" uuid="a233ab14-db78-48b4-9207-49faec35eba4">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$F{debit_commodity}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="187" y="64" width="322" height="15" uuid="0ff13103-a4e3-452e-bc81-44e84c2fe986">
+					<reportElement x="187" y="83" width="322" height="15" uuid="0ff13103-a4e3-452e-bc81-44e84c2fe986">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="53" y="64" width="77" height="15" uuid="0dc08677-f931-407a-84b2-88d15f6c9172"/>
+					<reportElement x="53" y="83" width="77" height="15" uuid="0dc08677-f931-407a-84b2-88d15f6c9172"/>
 					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$F{issued_with_customer_ci}? $F{customer_ci}:$F{customer_nit}]]></textFieldExpression>
 				</textField>
+				<rectangle>
+					<reportElement x="370" y="58" width="150" height="19" uuid="ab354657-be98-439f-bcd5-dd7bbbb7cb4c"/>
+				</rectangle>
+				<textField>
+					<reportElement x="428" y="60" width="90" height="15" uuid="10b5556e-7ad9-4db6-ba72-0cc382b10a5b"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[!$F{currency_abbreviation}.equals("BOB")?  $F{amount_total}.trim():""]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="375" y="60" width="50" height="15" uuid="d946b6cd-1b72-4ad3-85ab-313ca06b8402">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[!$F{currency_abbreviation}.equals("BOB")?  $F{currency_abbreviation}+"  .-":""]]></textFieldExpression>
+				</textField>
 			</frame>
 			<staticText>
-				<reportElement x="28" y="148" width="52" height="14" uuid="6d4523ac-b967-40b8-83af-00b03c5e5582">
+				<reportElement x="28" y="167" width="52" height="14" uuid="6d4523ac-b967-40b8-83af-00b03c5e5582">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<text><![CDATA[Pedido  :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="28" y="166" width="72" height="14" uuid="ba5b3d2c-5e9a-4ca6-868d-d1b4c66bf71b">
+				<reportElement x="28" y="185" width="72" height="14" uuid="ba5b3d2c-5e9a-4ca6-868d-d1b4c66bf71b">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<text><![CDATA[Mercaderia  :]]></text>
 			</staticText>
 			<frame>
-				<reportElement x="20" y="188" width="520" height="26" uuid="335aefca-654a-4309-8170-2d40eb57cb50"/>
+				<reportElement x="20" y="207" width="520" height="44" uuid="335aefca-654a-4309-8170-2d40eb57cb50">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<line>
 					<reportElement x="0" y="0" width="519" height="1" uuid="91df37a5-7cac-41fa-8c90-e14aa0811d13"/>
 				</line>
 				<line>
-					<reportElement x="519" y="1" width="1" height="25" uuid="6a1fdbaf-fa1c-443f-b3aa-5cee90b35248"/>
+					<reportElement x="519" y="1" width="1" height="44" uuid="6a1fdbaf-fa1c-443f-b3aa-5cee90b35248">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 				</line>
 				<line>
-					<reportElement x="0" y="0" width="1" height="26" uuid="598defa5-1699-42be-926b-50d62b99f4c8"/>
+					<reportElement x="0" y="1" width="1" height="44" uuid="598defa5-1699-42be-926b-50d62b99f4c8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 				</line>
 				<staticText>
 					<reportElement x="8" y="4" width="123" height="20" uuid="ab4cbb72-bf6e-407a-99f7-473625c5fb04">
@@ -250,6 +285,46 @@ WHERE dn.id = $P{id_debito}]]>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[POR CONCEPTO DE  : ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="24" width="131" height="18" uuid="d1efece3-b622-41e7-8023-c857ed0c7eba">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Empresa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="147" y="24" width="84" height="18" uuid="0f0364c5-9ed3-4e67-b43c-21751be4b312">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nº Factura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="237" y="24" width="172" height="18" uuid="acd6cbde-0cc8-4148-84d0-73a337a9e3b2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Concepto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="412" y="24" width="97" height="18" uuid="8d13488e-2c67-46c1-95cc-cbcf607798f9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Monto]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -272,31 +347,46 @@ WHERE dn.id = $P{id_debito}]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="18" splitType="Stretch">
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<frame>
-				<reportElement x="20" y="0" width="520" height="18" uuid="30d5d068-ad55-4a6a-a9d0-513b7dbe9fd2"/>
+				<reportElement x="20" y="0" width="520" height="20" uuid="30d5d068-ad55-4a6a-a9d0-513b7dbe9fd2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<line>
-					<reportElement x="0" y="0" width="1" height="18" uuid="46b1c820-e441-44b1-8f07-60c7d5d483dd"/>
+					<reportElement stretchType="ContainerHeight" x="0" y="0" width="1" height="20" uuid="46b1c820-e441-44b1-8f07-60c7d5d483dd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 				</line>
 				<line>
-					<reportElement x="519" y="0" width="1" height="18" uuid="d733a4a0-ae06-4211-9ea4-6ea54921b4c2"/>
+					<reportElement stretchType="ContainerHeight" x="519" y="0" width="1" height="20" uuid="d733a4a0-ae06-4211-9ea4-6ea54921b4c2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 				</line>
-				<textField>
-					<reportElement x="9" y="0" width="141" height="18" uuid="b54e937c-c0b9-47f3-8a98-33ed889b0827"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="9" y="0" width="131" height="18" uuid="b54e937c-c0b9-47f3-8a98-33ed889b0827">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 					<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
 				</textField>
-				<textField>
-					<reportElement x="150" y="0" width="84" height="18" uuid="c4817812-153d-418a-a157-f6d46a07155a"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="147" y="0" width="84" height="20" uuid="c4817812-153d-418a-a157-f6d46a07155a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 					<textFieldExpression><![CDATA[$F{invoice_number}]]></textFieldExpression>
 				</textField>
-				<textField>
-					<reportElement x="237" y="0" width="184" height="18" uuid="531b9002-582b-4265-9df3-59db8f71096f"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="237" y="0" width="172" height="20" uuid="531b9002-582b-4265-9df3-59db8f71096f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 					<textFieldExpression><![CDATA[$F{detail}]]></textFieldExpression>
 				</textField>
-				<textField>
-					<reportElement x="421" y="0" width="97" height="18" uuid="76177f84-488f-46ca-9695-d12fbda77ad5"/>
-					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{amount_paid}]]></textFieldExpression>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="412" y="0" width="92" height="20" uuid="76177f84-488f-46ca-9695-d12fbda77ad5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{amount_paid}.trim() +  (!$F{currency_abbreviation}.equals("BOB")?  "  "+$F{currency_abbreviation}:"  Bs")]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -307,12 +397,12 @@ WHERE dn.id = $P{id_debito}]]>
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="406" y="0" width="100" height="20" uuid="3567ac2c-31f3-448d-979a-cda23c5052e6"/>
+				<reportElement x="396" y="0" width="100" height="20" uuid="3567ac2c-31f3-448d-979a-cda23c5052e6"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="506" y="0" width="34" height="20" uuid="27e7d476-d01f-485b-b5c3-91dcdbd83406"/>
+				<reportElement x="496" y="0" width="42" height="20" uuid="27e7d476-d01f-485b-b5c3-91dcdbd83406"/>
 				<textElement textAlignment="Left"/>
 				<textFieldExpression><![CDATA[" de  " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
@@ -347,7 +437,7 @@ WHERE dn.id = $P{id_debito}]]>
 					<textElement textAlignment="Center"/>
 					<text><![CDATA[AGENAL ANTONIO YUTRONIC S.A.]]></text>
 				</staticText>
-				<textField>
+				<textField textAdjust="StretchHeight">
 					<reportElement x="54" y="64" width="458" height="21" uuid="0c09d33f-a980-41b4-b47a-cac1a91ab053"/>
 					<textFieldExpression><![CDATA[$F{amount_total_bs_str}]]></textFieldExpression>
 				</textField>

@@ -20,4 +20,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>net.sf.jasperreports.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>facturaExportacion.jrxml</name>
+			<type>1</type>
+			<location>/home/alex/JaspersoftWorkspace/factura_planilla_exportacion2/facturaExportacion.jrxml</location>
+		</link>
+	</linkedResources>
 </projectDescription>
