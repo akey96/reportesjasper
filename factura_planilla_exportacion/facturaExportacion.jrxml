@@ -108,8 +108,8 @@ where i.id =$P{id_factura}]]>
 			<frame>
 				<reportElement x="20" y="0" width="519" height="119" uuid="8f3a9e1a-d3ea-4062-964e-f215b2d910e6"/>
 				<image>
-					<reportElement x="0" y="0" width="219" height="118" uuid="7e0afbbf-9019-4a24-b991-22cae9b8c693"/>
-					<imageExpression><![CDATA["LogoAjayu2.png"]]></imageExpression>
+					<reportElement x="0" y="0" width="280" height="119" uuid="7e0afbbf-9019-4a24-b991-22cae9b8c693"/>
+					<imageExpression><![CDATA[$F{issued_in_department}.equals("COCHABAMBA")? "AgenallogoCochabamba.png": "AgenalLogoSantaCruz.png"]]></imageExpression>
 				</image>
 				<rectangle>
 					<reportElement x="300" y="0" width="219" height="119" uuid="e5a11ddc-076a-4af3-9115-83817617f414"/>
@@ -269,22 +269,22 @@ where i.id =$P{id_factura}]]>
 			<frame>
 				<reportElement x="20" y="0" width="520" height="18" uuid="8f0a8ded-4cba-43d6-b3bb-f3799b68d119"/>
 				<line>
-					<reportElement x="0" y="0" width="1" height="18" uuid="1db8502b-67de-41ae-a742-8ac782bc610b"/>
+					<reportElement stretchType="ContainerHeight" x="0" y="0" width="1" height="18" uuid="1db8502b-67de-41ae-a742-8ac782bc610b"/>
 				</line>
 				<line>
-					<reportElement x="519" y="0" width="1" height="18" uuid="7b5dd07c-3658-4e41-afdf-094a11643461"/>
+					<reportElement stretchType="ContainerHeight" x="519" y="0" width="1" height="18" uuid="7b5dd07c-3658-4e41-afdf-094a11643461"/>
 				</line>
-				<textField>
+				<textField textAdjust="StretchHeight">
 					<reportElement x="9" y="0" width="390" height="18" uuid="83475a18-f8d7-4cc0-bbc9-8c9a672456c2"/>
 					<textFieldExpression><![CDATA[$F{label}]]></textFieldExpression>
 				</textField>
-				<textField>
-					<reportElement x="411" y="0" width="104" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="411" y="0" width="96" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 				</textField>
 				<line>
-					<reportElement x="408" y="0" width="1" height="18" uuid="af60fd5f-e02c-443f-b415-5f37fe4e989c"/>
+					<reportElement stretchType="ContainerHeight" x="408" y="0" width="1" height="18" uuid="af60fd5f-e02c-443f-b415-5f37fe4e989c"/>
 				</line>
 			</frame>
 		</band>
@@ -354,15 +354,16 @@ where i.id =$P{id_factura}]]>
 					<text><![CDATA[TOTAL Bs.]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="415" y="92" width="100" height="17" uuid="71da04c2-b0a0-4a8e-96c8-88fbda60803c">
+					<reportElement x="412" y="92" width="96" height="17" uuid="71da04c2-b0a0-4a8e-96c8-88fbda60803c">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField textAdjust="StretchHeight">
 					<reportElement x="7" y="115" width="498" height="18" uuid="c143322d-cfe2-462f-85e2-e33d257df2cb"/>
 					<textFieldExpression><![CDATA["SON : "+$F{total_amount_str}]]></textFieldExpression>
 				</textField>

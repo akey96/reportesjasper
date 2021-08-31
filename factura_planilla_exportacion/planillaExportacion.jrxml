@@ -434,22 +434,22 @@ FACTURA Bs.]]></text>
 			<frame>
 				<reportElement x="20" y="0" width="520" height="18" uuid="8f0a8ded-4cba-43d6-b3bb-f3799b68d119"/>
 				<line>
-					<reportElement x="0" y="0" width="1" height="18" uuid="1db8502b-67de-41ae-a742-8ac782bc610b"/>
+					<reportElement stretchType="ContainerHeight" x="0" y="0" width="1" height="18" uuid="1db8502b-67de-41ae-a742-8ac782bc610b"/>
 				</line>
 				<line>
-					<reportElement x="519" y="0" width="1" height="18" uuid="7b5dd07c-3658-4e41-afdf-094a11643461"/>
+					<reportElement stretchType="ContainerHeight" x="519" y="0" width="1" height="18" uuid="7b5dd07c-3658-4e41-afdf-094a11643461"/>
 				</line>
-				<textField>
+				<textField textAdjust="StretchHeight">
 					<reportElement x="9" y="0" width="410" height="18" uuid="83475a18-f8d7-4cc0-bbc9-8c9a672456c2"/>
 					<textFieldExpression><![CDATA[$F{label}]]></textFieldExpression>
 				</textField>
-				<textField>
-					<reportElement x="430" y="0" width="86" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="430" y="0" width="81" height="18" uuid="498fdb43-e45a-4bf0-ade2-a2122d59431b"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{amount}.trim()]]></textFieldExpression>
 				</textField>
 				<line>
-					<reportElement x="427" y="0" width="1" height="18" uuid="af60fd5f-e02c-443f-b415-5f37fe4e989c"/>
+					<reportElement stretchType="ContainerHeight" x="427" y="0" width="1" height="18" uuid="af60fd5f-e02c-443f-b415-5f37fe4e989c"/>
 				</line>
 			</frame>
 		</band>
@@ -612,8 +612,9 @@ Aduana Nacional]]></text>
 					<text><![CDATA[SALDO TOTAL A PAGAR Bs.]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="430" y="94" width="86" height="15" uuid="39de23b9-7dde-47c7-a87c-8068c0ba5fe7">
+					<reportElement x="430" y="94" width="81" height="15" uuid="39de23b9-7dde-47c7-a87c-8068c0ba5fe7">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
@@ -659,7 +660,7 @@ Aduana Nacional]]></text>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{total_balance}.trim()]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField textAdjust="StretchHeight">
 					<reportElement x="2" y="115" width="515" height="20" uuid="9d90d7a0-1e97-40a4-9ff2-fad73b86c881">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
