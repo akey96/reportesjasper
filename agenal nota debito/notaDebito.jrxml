@@ -106,7 +106,7 @@ WHERE dn.id = $P{id_debito}]]>
 		<property name="com.jaspersoft.studio.field.label" value="company_name"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="debit_note_items"/>
 	</field>
-	<field name="invoice_number" class="java.lang.Long">
+	<field name="invoice_number" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="invoice_number"/>
 		<property name="com.jaspersoft.studio.field.label" value="invoice_number"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="debit_note_items"/>

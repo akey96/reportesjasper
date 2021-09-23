@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReportePlanilla" pageWidth="612" pageHeight="135" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1786ca38-23d1-41c2-8559-dc0336936012">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReportePlanilla" pageWidth="612" pageHeight="150" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1786ca38-23d1-41c2-8559-dc0336936012">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
-	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
 	<queryString>
@@ -107,15 +98,16 @@ WHERE id = $P{id_planilla}]]>
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="95" splitType="Stretch">
+		<band height="110" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<line>
 				<reportElement x="26" y="1" width="520" height="1" uuid="26272c47-8eb1-40c7-a51f-d5f3d1c857bb"/>
 			</line>
 			<line>
-				<reportElement x="26" y="48" width="520" height="1" uuid="f60b63b9-01b6-4a1e-b112-fd65d6c8e326"/>
+				<reportElement x="26" y="63" width="520" height="1" uuid="f60b63b9-01b6-4a1e-b112-fd65d6c8e326"/>
 			</line>
 			<line>
-				<reportElement x="26" y="93" width="520" height="1" uuid="c96ff070-d6b1-44fa-a033-4f3293d0d63e"/>
+				<reportElement x="26" y="108" width="520" height="1" uuid="c96ff070-d6b1-44fa-a033-4f3293d0d63e"/>
 			</line>
 			<staticText>
 				<reportElement x="20" y="3" width="67" height="15" uuid="85ecf243-7d4a-415f-9f95-90aadbb39aca">
@@ -138,7 +130,7 @@ WHERE id = $P{id_planilla}]]>
 				<text><![CDATA[CARGUIO :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="50" width="72" height="15" uuid="6904777b-f6dd-4105-948e-c9ad2301d5f4">
+				<reportElement x="20" y="65" width="72" height="15" uuid="6904777b-f6dd-4105-948e-c9ad2301d5f4">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -148,7 +140,7 @@ WHERE id = $P{id_planilla}]]>
 				<text><![CDATA[PLANILLA :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="62" width="72" height="15" uuid="ea63fd80-aa7a-46c2-a601-210c7f66a173">
+				<reportElement x="20" y="77" width="72" height="15" uuid="ea63fd80-aa7a-46c2-a601-210c7f66a173">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -157,7 +149,7 @@ WHERE id = $P{id_planilla}]]>
 				<text><![CDATA[DEX :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="75" width="72" height="15" uuid="5edab8ac-70fd-42fc-acb2-304924e27bb6">
+				<reportElement x="20" y="90" width="72" height="15" uuid="5edab8ac-70fd-42fc-acb2-304924e27bb6">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -186,7 +178,7 @@ WHERE id = $P{id_planilla}]]>
 				<text><![CDATA[PESO NETO :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="299" y="50" width="143" height="15" uuid="32e33a07-4996-495d-b794-1d4e87da0afb">
+				<reportElement x="299" y="65" width="143" height="15" uuid="32e33a07-4996-495d-b794-1d4e87da0afb">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -196,7 +188,7 @@ WHERE id = $P{id_planilla}]]>
 				<text><![CDATA[TOTAL FOB FRONTERA $us :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="299" y="62" width="143" height="15" uuid="8d8be833-5495-4981-bc9c-2b6738f70347">
+				<reportElement x="299" y="77" width="143" height="15" uuid="8d8be833-5495-4981-bc9c-2b6738f70347">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -205,7 +197,7 @@ WHERE id = $P{id_planilla}]]>
 				<text><![CDATA[TOTAL FACTURA $us :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="299" y="75" width="143" height="15" uuid="c8f22b46-7589-4abe-9e17-e650dfe10c10">
+				<reportElement x="299" y="90" width="143" height="15" uuid="c8f22b46-7589-4abe-9e17-e650dfe10c10">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -234,39 +226,39 @@ WHERE id = $P{id_planilla}]]>
 				<textFieldExpression><![CDATA[$F{weight}.trim()+" "+$F{unit_weight}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="94" y="50" width="205" height="15" uuid="f2f48966-1b0d-47df-8d64-98ace76abfd8">
+				<reportElement x="94" y="65" width="205" height="15" uuid="f2f48966-1b0d-47df-8d64-98ace76abfd8">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{internal_number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="94" y="62" width="205" height="15" uuid="a9b7894e-32db-4c5d-9b2d-6650e4cbaf81">
+				<reportElement x="94" y="77" width="205" height="15" uuid="a9b7894e-32db-4c5d-9b2d-6650e4cbaf81">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{statement_number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="94" y="75" width="205" height="15" uuid="48e6e85f-8aa9-45b8-8407-605b094724de">
+				<reportElement x="94" y="90" width="205" height="15" uuid="48e6e85f-8aa9-45b8-8407-605b094724de">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{expedient_number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="50" width="100" height="15" uuid="b4e31da5-4874-4e9a-a286-fccc65aad520">
+				<reportElement x="445" y="64" width="100" height="15" uuid="b4e31da5-4874-4e9a-a286-fccc65aad520">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{total_fob_usd}.trim()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="64" width="100" height="15" uuid="fdd8e595-5a71-4f22-a9bb-85b34e9fd239">
+				<reportElement x="445" y="79" width="100" height="15" uuid="fdd8e595-5a71-4f22-a9bb-85b34e9fd239">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{total_invoice_usd}.trim()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="76" width="100" height="15" uuid="9071c39c-ce55-48c8-9687-a609aea44c78">
+				<reportElement x="445" y="91" width="100" height="15" uuid="9071c39c-ce55-48c8-9687-a609aea44c78">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
@@ -282,8 +274,10 @@ WHERE id = $P{id_planilla}]]>
 				</textElement>
 				<text><![CDATA[FACTURA/S :]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="90" y="33" width="196" height="15" uuid="b3f6b7f9-14f0-47de-a76c-21b82475d89d"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="90" y="33" width="460" height="30" uuid="b3f6b7f9-14f0-47de-a76c-21b82475d89d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textFieldExpression><![CDATA[$F{receipt_invoice}]]></textFieldExpression>
 			</textField>
 		</band>

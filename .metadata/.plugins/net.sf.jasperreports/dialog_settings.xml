@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="com.jaspersoft.studio.property.descriptor.expression.dialog.JRExpressionEditor">
-		<item key="dialogX" value="1951"/>
+		<item key="dialogX" value="585"/>
 		<item key="dialogY" value="105"/>
 		<item key="dialogWidth" value="750"/>
 		<item key="dialogHeight" value="680"/>

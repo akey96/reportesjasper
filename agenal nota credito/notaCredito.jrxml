@@ -292,7 +292,7 @@ WHERE cn.id= $P{id_credito}]]>
 					<reportElement x="114" y="33" width="396" height="20" uuid="d94794e9-2e06-4f67-8580-0860587f7a88"/>
 					<textFieldExpression><![CDATA[$F{deposit_type}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField textAdjust="StretchHeight">
 					<reportElement stretchType="ContainerHeight" x="54" y="133" width="457" height="20" uuid="a8c8ca68-decb-498d-bfe7-0776f0a0da2f"/>
 					<textFieldExpression><![CDATA[$F{amount_total_str}]]></textFieldExpression>
 				</textField>
