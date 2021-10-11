@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+    <libraryInfo home="/opt/tibco/TIB_js-studiocomm_6.17.0/features/jre.linux.gtk.x86_64.feature_11.0.8/adoptopenjdk_jre" version="11.0.8"/>
     <libraryInfo home="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151" version="1.8.0_151">
         <bootpath>
             <entry path="/opt/jaspersoftstudio/features/jre.linux.gtk.x86_64.feature_1.8.0.u151/jre/lib/resources.jar"/>

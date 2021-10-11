@@ -17,10 +17,10 @@
 		<item key="dialogWidth" value="1366"/>
 		<item key="dialogHeight" value="739"/>
 		<item key="DIALOG_X_ORIGIN" value="277"/>
-		<item key="DIALOG_Y_ORIGIN" value="30"/>
+		<item key="DIALOG_Y_ORIGIN" value="66"/>
 		<item key="DIALOG_WIDTH" value="1366"/>
 		<item key="DIALOG_HEIGHT" value="739"/>
-		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		<item key="DIALOG_FONT_NAME" value="1|Noto Sans|10.0|0|GTK|1|"/>
 	</section>
 	<section name="com.jaspersoft.studio.model.image.command.dialog.ImageCreationDialog">
 		<item key="dialogX" value="647"/>
@@ -58,13 +58,13 @@
 	<section name="com.jaspersoft.studio.server.publish.wizard.SaveConfirmationDialog">
 		<item key="dialogX" value="754"/>
 		<item key="dialogY" value="470"/>
-		<item key="dialogWidth" value="413"/>
-		<item key="dialogHeight" value="132"/>
+		<item key="dialogWidth" value="381"/>
+		<item key="dialogHeight" value="142"/>
 		<item key="DIALOG_X_ORIGIN" value="754"/>
-		<item key="DIALOG_Y_ORIGIN" value="434"/>
-		<item key="DIALOG_WIDTH" value="413"/>
-		<item key="DIALOG_HEIGHT" value="132"/>
-		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		<item key="DIALOG_Y_ORIGIN" value="470"/>
+		<item key="DIALOG_WIDTH" value="381"/>
+		<item key="DIALOG_HEIGHT" value="142"/>
+		<item key="DIALOG_FONT_NAME" value="1|Noto Sans|10.0|0|GTK|1|"/>
 	</section>
 	<section name="com.jaspersoft.studio.server.publish.wizard.Publish2ServerWizard">
 		<item key="DIALOG_X_ORIGIN" value="544"/>

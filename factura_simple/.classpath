@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/alex/Escritorio/java_path/core-2.3.0.jar"/>
+	<classpathentry kind="lib" path="/home/alex/Escritorio/java_path/zxing-j2se-1.7.jar"/>
+	<classpathentry kind="lib" path="/home/alex/NetBeansProjects/FechaAgenal/dist/FechaAgenal.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
