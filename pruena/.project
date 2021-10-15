@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>ventas_cod_date_and_user.jrxml</name>
-			<type>1</type>
-			<location>/home/alex/trabajos_de_cursos/Inventarios-bananas/liquida/code/resources/jasperReports/ventas/ventas_cod_date_and_user.jrxml</location>
-		</link>
-	</linkedResources>
 </projectDescription>
