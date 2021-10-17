@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92901d70-03a5-4e87-a7d8-eb07220d70ad">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
@@ -109,7 +109,7 @@ where i.id =$P{id_factura}]]>
 				<reportElement x="20" y="0" width="519" height="119" uuid="8f3a9e1a-d3ea-4062-964e-f215b2d910e6"/>
 				<image>
 					<reportElement x="0" y="0" width="280" height="119" uuid="7e0afbbf-9019-4a24-b991-22cae9b8c693"/>
-					<imageExpression><![CDATA[$F{issued_in_department}.equals("COCHABAMBA")? "AgenallogoCochabamba.png": "AgenalLogoSantaCruz.png"]]></imageExpression>
+					<imageExpression><![CDATA[$F{issued_in_department}.equals("COCHABAMBA")? "AgenallogoCochabamba.png": "AgenallogoSantaCruz.png"]]></imageExpression>
 				</image>
 				<rectangle>
 					<reportElement x="300" y="0" width="219" height="119" uuid="e5a11ddc-076a-4af3-9115-83817617f414"/>

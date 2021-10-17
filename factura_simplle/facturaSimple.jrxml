@@ -111,7 +111,7 @@ where i.id =$P{id_factura}]]>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
-					<imageExpression><![CDATA[$F{issued_in_department}.equals("COCHABAMBA")? "AgenallogoCochabamba.png": "AgenalLogoSantaCruz.png"]]></imageExpression>
+					<imageExpression><![CDATA[$F{issued_in_department}.equals("COCHABAMBA")? "AgenallogoCochabamba.png": "AgenallogoSantaCruz.png"]]></imageExpression>
 				</image>
 				<rectangle>
 					<reportElement x="300" y="0" width="219" height="119" uuid="e5a11ddc-076a-4af3-9115-83817617f414"/>
