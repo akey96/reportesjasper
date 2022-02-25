@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d30345c7-3f92-4983-ac78-0c2e5c285486">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
 	<property name="ireport.jasperserver.url" value="http://192.168.122.209:8080/jasperserver/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.report.resource" value="/reports/notaCredito_files/main_jrxml"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/notaCredito"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal develop"/>
 	<parameter name="id_credito" class="java.lang.Long">
 		<parameterDescription><![CDATA[Id para  nota de credito]]></parameterDescription>
 	</parameter>
@@ -14,7 +14,7 @@
 		<![CDATA[SELECT
 ag.social_reason,
 cn.issued_in_department,
-CONCAT(cn.issued_in_department_short,cn.branch_identifier,cn.issued_in_year,'-',cn.assigned_number) as internal_number,
+CONCAT(cn.issued_in_department_short,cn.branch_identifier,cn.issued_in_year,cn.doctype_short,'-',cn.assigned_number) as internal_number,
 cn.issued_date,
 cn.issued_with_customer_ci,
 c.customer_ci,

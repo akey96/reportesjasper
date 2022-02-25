@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92901d70-03a5-4e87-a7d8-eb07220d70ad">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
 	<property name="ireport.jasperserver.url" value="http://181.115.181.116:8080//jasperserver/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.report.resource" value="/reports/factura_planilla_importacion_main_files/planillaImportacion.jrxml"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/factura_planilla_importacion_main"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal develop"/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
@@ -14,7 +14,7 @@ cus.customer_name,
 to_char(iss.down_payment, '999,999,999.99') as down_payment ,
 to_char(iss.spreadsheet_total_amount+invo.total_amount, '999,999,999.99') as total_resumen,
 to_char((iss.spreadsheet_total_amount+invo.total_amount) - iss.down_payment, '999,999,999.99') as total_balance,
-CONCAT(iss.issued_in_department_short,iss.branch_identifier,iss.issued_in_year,'-',iss.assigned_number) as internal_number,
+CONCAT(iss.issued_in_department_short,iss.branch_identifier,iss.issued_in_year,iss.doctype_short,'-',iss.assigned_number) as internal_number,
 iss.issued_in_department,
 iss.issued_date,
 iss.order,
@@ -472,8 +472,8 @@ CIF FRONTERA Bs.]]></text>
 				<imageExpression><![CDATA["ibnorca.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="293" y="0" width="121" height="57" uuid="d7c7bbae-c96a-4087-a059-44ee1fff7464"/>
-				<imageExpression><![CDATA["Oea-730-730x460.jpg"]]></imageExpression>
+				<reportElement x="337" y="0" width="70" height="49" uuid="d7c7bbae-c96a-4087-a059-44ee1fff7464"/>
+				<imageExpression><![CDATA["oealogo.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="100" y="34" width="122" height="30" uuid="82f3ee1a-4fa9-4293-8f8b-1e58bf6eae8f"/>

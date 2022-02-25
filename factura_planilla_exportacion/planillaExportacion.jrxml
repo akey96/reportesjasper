@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92901d70-03a5-4e87-a7d8-eb07220d70ad">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
-	<property name="ireport.jasperserver.url" value="http://181.115.181.116:8080//jasperserver/"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal develop"/>
+	<property name="ireport.jasperserver.url" value="http://10.147.20.247:8080/jasperserver/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
-	<property name="ireport.jasperserver.report.resource" value="/reports/factura_planilla_importacion_main_files/planillaImportacion.jrxml"/>
-	<property name="ireport.jasperserver.reportUnit" value="/reports/factura_planilla_importacion_main"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/factura_planilla_exportacion_book_files/planillaExportacion.jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/factura_planilla_exportacion_book"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="249"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="740"/>
 	<parameter name="id_planilla" class="java.lang.Long"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
@@ -14,7 +16,7 @@ cus.customer_name,
 to_char(ess.down_payment, '999,999,999.99') as down_payment,
 to_char(ess.spreadsheet_total_amount+invo.total_amount, '999,999,999.99') as total_resumen,
 to_char((ess.spreadsheet_total_amount+invo.total_amount) - ess.down_payment, '999,999,999.99') as total_balance,
-CONCAT(ess.issued_in_department_short,ess.branch_identifier,ess.issued_in_year,'-',ess.assigned_number) as internal_number,
+CONCAT(ess.issued_in_department_short,ess.branch_identifier,ess.issued_in_year,ess.doctype_short,'-',ess.assigned_number) as internal_number,
  ess.issued_in_department,
  ess.issued_date,
  ess.product,
@@ -209,7 +211,7 @@ where ess.id = $P{id_planilla}]]>
 						<font size="9" isBold="true"/>
 						<paragraph lineSpacingSize="1.0"/>
 					</textElement>
-					<text><![CDATA[DECLARACION DE IMPORTACION]]></text>
+					<text><![CDATA[DECLARACION DE EXPORTACION]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="162" y="101" width="77" height="28" uuid="0ba225cd-3147-496b-84c3-5e307650f614"/>
@@ -485,8 +487,12 @@ FACTURA Bs.]]></text>
 				<imageExpression><![CDATA["ibnorca.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="293" y="0" width="121" height="57" uuid="d7c7bbae-c96a-4087-a059-44ee1fff7464"/>
-				<imageExpression><![CDATA["Oea-730-730x460.jpg"]]></imageExpression>
+				<reportElement x="337" y="0" width="70" height="49" uuid="d7c7bbae-c96a-4087-a059-44ee1fff7464">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["oealogo.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="100" y="34" width="122" height="30" uuid="82f3ee1a-4fa9-4293-8f8b-1e58bf6eae8f"/>

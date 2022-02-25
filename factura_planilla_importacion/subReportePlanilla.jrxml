@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReportePlanilla" pageWidth="612" pageHeight="135" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1786ca38-23d1-41c2-8559-dc0336936012">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal_db_connection"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="agenal develop"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
@@ -20,7 +20,7 @@ iss.order,
 iss.product,
 iss.supplier,
 iss.order_invoice,
-CONCAT(iss.issued_in_department_short,iss.branch_identifier,iss.issued_in_year,'-',iss.assigned_number) as internal_number,
+CONCAT(iss.issued_in_department_short,iss.branch_identifier,iss.issued_in_year,iss.doctype_short,'-',iss.assigned_number) as internal_number,
 iss.expedient_number,
 to_char(fob_usd, '999,999,999.99') as fob_usd, 
 to_char(cif_usd, '999,999,999.99') as cif_usd, 
